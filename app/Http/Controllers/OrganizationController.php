@@ -10,4 +10,9 @@ class OrganizationController extends Controller
     {
         return view('organization.index');
     }
+
+    public function showOrganization()
+    {
+        return view('organization.show');
+    }
 }

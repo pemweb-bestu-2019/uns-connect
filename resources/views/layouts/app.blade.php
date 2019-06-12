@@ -143,7 +143,7 @@
                         <div class="dropdown d-none d-sm-flex">
                             <button class="btn-account" type="button" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false"><span class="user-avatar user-avatar-md"><img
-                                        src="assets/images/avatars/profile.jpg" alt=""></span> <span
+                                        src="/assets/images/avatars/profile.jpg" alt=""></span> <span
                                     class="account-summary pr-md-4 d-none d-md-block"><span class="account-name">Galih
                                         Akbar Moerbayaksa</span> <span class="account-description">Marketing
                                         Manager</span></span></button>
@@ -184,7 +184,7 @@
                             <div class="nav nav-tabs">
                                 <a class="nav-link {{ nav_set_active(['events.index', 'events.show']) }}"
                                     href="{{ route('events.index') }}"><i class="far fa-calendar"></i> Event Search</a>
-                                <a class="nav-link {{ nav_set_active('organizations.index') }}"
+                                <a class="nav-link {{ nav_set_active(['organizations.index', 'organizations.show']) }}"
                                     href="{{ route('organizations.index') }}"><i class="far fa-building"></i>
                                     Organizations <span class="badge">16</span></a> <a
                                     class="nav-link {{ nav_set_active('calender.index') }}"
