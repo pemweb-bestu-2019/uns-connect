@@ -11,202 +11,120 @@
     </header><!-- /.page-title-bar -->
     <!-- .page-section -->
     <div class="page-section">
-        <!-- .masonry-layout -->
-        <div class="masonry-layout">
-            <div class="masonry-item col-lg-12">
-                <form class="top-bar-search" style="margin-bottom: 20px;">
-                    <div class="input-group input-group-search">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><span class="oi oi-magnifying-glass"></span></span>
-                        </div><input type="text" class="form-control" aria-label="Search" placeholder="Search">
+        <div class="section-box">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false"><span>This Month</span> <i
+                                class="fa fa-fw fa-caret-down"></i></button>
+                        <div class="dropdown-arrow dropdown-arrow-right"></div><!-- .dropdown-menu -->
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-md stop-propagation">
+                            <!-- .custom-control -->
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="dpToday" name="dpFilter" value="0">
+                                <label class="custom-control-label d-flex justify-content-between"
+                                    for="dpToday"><span>Today</span> <span class="text-muted">Mar 27</span></label>
+                            </div><!-- /.custom-control -->
+                            <!-- .custom-control -->
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="dpYesterday" name="dpFilter"
+                                    value="1"> <label class="custom-control-label d-flex justify-content-between"
+                                    for="dpYesterday"><span>Yesterday</span> <span class="text-muted">Mar
+                                        26</span></label>
+                            </div><!-- /.custom-control -->
+                            <!-- .custom-control -->
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="dpWeek" name="dpFilter" value="2">
+                                <label class="custom-control-label d-flex justify-content-between"
+                                    for="dpWeek"><span>This Week</span> <span class="text-muted">Mar
+                                        21-27</span></label>
+                            </div><!-- /.custom-control -->
+                            <!-- .custom-control -->
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="dpMonth" name="dpFilter" value="3"
+                                    checked=""> <label class="custom-control-label d-flex justify-content-between"
+                                    for="dpMonth"><span>This Month</span> <span class="text-muted">Mar
+                                        1-31</span></label>
+                            </div><!-- /.custom-control -->
+                            <!-- .custom-control -->
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="dpYear" name="dpFilter" value="4">
+                                <label class="custom-control-label d-flex justify-content-between"
+                                    for="dpYear"><span>This Year</span> <span class="text-muted">2018</span></label>
+                            </div><!-- /.custom-control -->
+                            <!-- .custom-control -->
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="dpCustom" name="dpFilter"
+                                    value="5"> <label class="custom-control-label" for="dpCustom">Custom</label>
+                                <div class="custom-control-hint my-1">
+                                    <!-- datepicker:range -->
+                                    <input type="text" class="form-control flatpickr-input" data-toggle="flatpickr"
+                                        data-mode="range" data-date-format="Y-m-d" readonly="readonly">
+                                    <!-- /datepicker:range -->
+                                </div>
+                            </div><!-- /.custom-control -->
+                        </div><!-- /.dropdown-menu -->
                     </div>
-                </form>
+                </div>
             </div>
-            <!-- .masonry-item -->
-            <div class="masonry-item col-lg-6">
-                <!-- .card -->
-                <div class="card card-fluid">
-                    <!-- .card-body -->
-                    <div class="card-body">
-                        <!-- team avatar -->
-                        <div class="media align-items-center mb-3">
-                            <a href="page-team.html" class="user-avatar user-avatar-lg mr-3"><img
-                                    src="assets/images/avatars/team4.jpg" alt=""></a>
-                            <div class="media-body">
-                                <h3 class="card-title">
-                                    <a href="page-team.html">Seminar Nasional: Tech</a>
-                                </h3>
-                                <h6 class="card-subtitle text-muted"> Himpunan Rohis Nasional </h6>
-                            </div><a href="page-conversations.html" class="btn btn-icon btn-light" data-toggle="tooltip"
-                                title="Lihat organisasi"><i class="far fa-building"></i></a>
-                        </div><!-- /.media -->
-                        <p> We make stunning and cool responsive web and app design which suitable for any project
-                            purpose for your business. </p><!-- /team avatar -->
-                        <hr>
-                        <!-- team details -->
-                        <ul class="list-icons mb-3">
-                            <li>
-                                <span class="list-icon"><span class="fa fa-map-marker text-muted"></span></span> London
-                            </li>
-                            <li>
-                                <span class="list-icon"><span class="fa fa-flag text-muted"></span></span> 20 November
-                                2019 </li>
-                        </ul><!-- /team details -->
-                    </div><!-- /.card-body -->
-                    <!-- .card-footer -->
-                    <div class="card-footer">
-                        <a href="#" class="card-footer-item card-footer-item-bordered text-muted"><strong>135</strong>
-                            Terdaftar</a> <a href="#"
-                            class="card-footer-item card-footer-item-bordered text-muted">Lihat</a> <a href="#"
-                            class="card-footer-item card-footer-item-bordered text-muted">Daftar</a>
-                    </div><!-- /.card-footer -->
-                </div><!-- /.card -->
-            </div><!-- /.masonry-item -->
-            <!-- .masonry-item -->
-            <div class="masonry-item col-lg-6">
-                <!-- .card -->
-                <div class="card card-fluid">
-                    <!-- .card-body -->
-                    <div class="card-body">
-                        <!-- team avatar -->
-                        <div class="media align-items-center mb-3">
-                            <a href="page-team.html" class="tile tile-circle tile-lg bg-teal mr-3">TD</a>
-                            <div class="media-body">
-                                <h3 class="card-title">
-                                    <a href="page-team.html">Hackathon: Traveloka Day</a>
-                                </h3>
-                                <h6 class="card-subtitle text-muted"> PT. Traveloka Indonesia </h6>
-                            </div><a href="page-conversations.html" class="btn btn-icon btn-light" data-toggle="tooltip"
-                                title="Lihat organisasi"><i class="far fa-building"></i></a>
-                        </div><!-- /.media -->
-                        <p> We make stunning and cool responsive web and app design which suitable for any project
-                            purpose for your business. </p><!-- /team avatar -->
-                        <hr>
-                        <!-- team details -->
-                        <ul class="list-icons mb-3">
-                            <li>
-                                <span class="list-icon"><span class="fa fa-map-marker text-muted"></span></span> Jakarta
-                            </li>
-                            <li>
-                                <span class="list-icon"><span class="fa fa-flag text-muted"></span></span> 21 November
-                                2019 </li>
-                        </ul><!-- /team details -->
-                    </div><!-- /.card-body -->
-                    <!-- .card-footer -->
-                    <div class="card-footer">
-                        <a href="#" class="card-footer-item card-footer-item-bordered text-muted"><strong>54.233</strong>
-                            Terdaftar</a> <a href="#"
-                            class="card-footer-item card-footer-item-bordered text-muted">Lihat</a> <a href="#"
-                            class="card-footer-item card-footer-item-bordered text-muted">Daftar</a>
-                    </div><!-- /.card-footer -->
-                </div><!-- /.card -->
-            </div><!-- /.masonry-item -->
-            <!-- .masonry-item -->
-            <div class="masonry-item col-lg-6">
-                <!-- .card -->
-                <div class="card card-fluid">
-                    <!-- .card-body -->
-                    <div class="card-body">
-                        <!-- team avatar -->
-                        <div class="media align-items-center mb-3">
-                            <a href="page-team.html" class="user-avatar user-avatar-lg mr-3"><img
-                                    src="assets/images/avatars/team1.jpg" alt=""></a>
-                            <div class="media-body">
-                                <h3 class="card-title">
-                                    <a href="page-team.html">Android Indonesia Kejar</a>
-                                </h3>
-                                <h6 class="card-subtitle text-muted"> Google Indonesia </h6>
-                            </div><a href="page-conversations.html" class="btn btn-icon btn-light" data-toggle="tooltip"
-                                title="Lihat organisasi"><i class="far fa-building"></i></a>
-                        </div><!-- /.media -->
-                        <p> We make stunning and cool responsive web and app design which suitable for any project
-                            purpose for your business. </p><!-- /team avatar -->
-                        <hr>
-                        <!-- team details -->
-                        <ul class="list-icons mb-3">
-                            <li>
-                                <span class="list-icon"><span class="fa fa-map-marker text-muted"></span></span> Surakarta
-                            </li>
-                            <li>
-                                <span class="list-icon"><span class="fa fa-flag text-muted"></span></span> 20 November
-                                2019 </li>
-                        </ul><!-- /team details -->
-                    </div><!-- /.card-body -->
-                    <!-- .card-footer -->
-                    <div class="card-footer">
-                        <a href="#" class="card-footer-item card-footer-item-bordered text-muted"><strong>5</strong>
-                            Terdaftar</a> <a href="#"
-                            class="card-footer-item card-footer-item-bordered text-muted">Lihat</a> <a href="#"
-                            class="card-footer-item card-footer-item-bordered text-muted">Daftar</a>
-                    </div><!-- /.card-footer -->
-                </div><!-- /.card -->
-            </div><!-- /.masonry-item -->
-            <!-- .masonry-item -->
-            <div class="masonry-item col-lg-6">
-                <!-- .card -->
-                <div class="card card-fluid">
-                    <!-- .card-body -->
-                    <div class="card-body">
-                        <!-- team avatar -->
-                        <div class="media align-items-center mb-3">
-                            <a href="page-team.html" class="user-avatar user-avatar-lg mr-3"><img
-                                    src="assets/images/avatars/bootstrap.svg" alt=""></a>
-                            <div class="media-body">
-                                <h3 class="card-title">
-                                    <a href="page-team.html">Flutter Developer</a>
-                                </h3>
-                                <h6 class="card-subtitle text-muted"> GoTech Surakarta </h6>
-                            </div><a href="page-conversations.html" class="btn btn-icon btn-light" data-toggle="tooltip"
-                                title="Lihat organisasi"><i class="far fa-building"></i></a>
-                        </div><!-- /.media -->
-                        <p> We make stunning and cool responsive web and app design which suitable for any project
-                            purpose for your business. </p><!-- /team avatar -->
-                        <hr>
-                        <!-- team details -->
-                        <ul class="list-icons mb-3">
-                            <li>
-                                <span class="list-icon"><span class="fa fa-map-marker text-muted"></span></span> Surakarta
-                            </li>
-                            <li>
-                                <span class="list-icon"><span class="fa fa-flag text-muted"></span></span> 30 November
-                                2019 </li>
-                        </ul><!-- /team details -->
-                    </div><!-- /.card-body -->
-                    <!-- .card-footer -->
-                    <div class="card-footer">
-                        <a href="#" class="card-footer-item card-footer-item-bordered text-muted"><strong>145</strong>
-                            Terdaftar</a> <a href="#"
-                            class="card-footer-item card-footer-item-bordered text-muted">Lihat</a> <a href="#"
-                            class="card-footer-item card-footer-item-bordered text-muted">Daftar</a>
-                    </div><!-- /.card-footer -->
-                </div><!-- /.card -->
-            </div><!-- /.masonry-item -->
-            <div class="masonry-item col-lg-12">
-                <ul class="pagination">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#">«</a>
-                    </li>
-                    <li class="page-item active">
-                        <a class="page-link" href="#">1</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">2</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">3</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">4</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">5</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">»</a>
-                    </li>
-                </ul>
-            </div>
-        </div><!-- /.masonry-layout -->
+        </div>
+        <div class="section-block">
+            <!-- grid row -->
+            <div class="row">
+                <!-- grid column -->
+                <div class="col-lg-6">
+                    <!-- .list-group -->
+                    <div class="list-group list-group-media mb-3">
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <div class="list-group-item-figure rounded-left">
+                                <img src="assets/images/dummy/img-5.jpg" alt="placeholder image">
+                            </div>
+                            <div class="list-group-item-body">
+                                <h4 class="list-group-item-title"> Expanding Your Home Network’s Reach </h4>
+                                <p class="list-group-item-text"> A incidunt, corrupti. Quasi, incidunt ab, vel quidem
+                                    debitis fuga? Delectus, ipsam... </p>
+                            </div>
+                        </a> <a href="#" class="list-group-item list-group-item-action">
+                            <div class="list-group-item-figure rounded-left">
+                                <img src="assets/images/dummy/img-1.jpg" alt="placeholder image">
+                            </div>
+                            <div class="list-group-item-body">
+                                <h4 class="list-group-item-title"> The Wealth of New Choices With Robot Vacuum Cleaners
+                                </h4>
+                                <p class="list-group-item-text"> Fugiat beatae vel neque, minus voluptatum in. Placeat
+                                    repellat qui impedit, consectetur... </p>
+                            </div>
+                        </a>
+                    </div><!-- /.list-group -->
+                </div><!-- /grid column -->
+                <!-- grid column -->
+                <div class="col-lg-6">
+                    <!-- .list-group -->
+                    <div class="list-group list-group-media mb-3">
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <div class="list-group-item-figure rounded-left">
+                                <img src="assets/images/dummy/img-4.jpg" alt="placeholder image">
+                            </div>
+                            <div class="list-group-item-body">
+                                <h4 class="list-group-item-title"> Meet the People Who Train the Robots </h4>
+                                <p class="list-group-item-text"> Veritatis dicta expedita dolorem repudiandae nemo odit
+                                    quos optio vero libero quia... </p>
+                            </div>
+                        </a> <a href="#" class="list-group-item list-group-item-action">
+                            <div class="list-group-item-figure rounded-left">
+                                <img src="assets/images/dummy/img-2.jpg" alt="placeholder image">
+                            </div>
+                            <div class="list-group-item-body">
+                                <h4 class="list-group-item-title"> Daily Report: Cloud Computing Asserts Itself </h4>
+                                <p class="list-group-item-text"> Reprehenderit iure et, fugit libero harum doloremque
+                                    culpa... </p>
+                            </div>
+                        </a>
+                    </div><!-- /.list-group -->
+                </div><!-- /grid column -->
+            </div><!-- /grid row -->
+        </div>
     </div><!-- /.page-section -->
 </div><!-- /.page-inner -->
 @endsection
