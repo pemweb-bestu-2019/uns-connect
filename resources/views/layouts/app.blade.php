@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor/fontawesome/css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/flatpickr/flatpickr.min.css') }}">
 
+    @stack('styles')
+
     <!-- Theme Styles -->
     <link rel="stylesheet" href="{{ asset('assets/stylesheets/theme.min.css') }}" data-skin="default">
     {{-- <link rel="stylesheet" href="{{ asset('assets/stylesheets/theme-dark.min.css') }}" data-skin="dark"> --}}
@@ -180,12 +182,14 @@
                         <div class="nav-scroller">
                             <!-- .nav -->
                             <div class="nav nav-tabs">
-                                <a class="nav-link {{ nav_set_active('events.index') }}"
+                                <a class="nav-link {{ nav_set_active(['events.index', 'events.show']) }}"
                                     href="{{ route('events.index') }}"><i class="far fa-calendar"></i> Event Search</a>
                                 <a class="nav-link {{ nav_set_active('organizations.index') }}"
                                     href="{{ route('organizations.index') }}"><i class="far fa-building"></i>
-                                    Organizations <span class="badge">16</span></a> <a class="nav-link {{ nav_set_active('calender.index') }}" href="{{ route('calender.index') }}"><i
-                                        class="far fa-calendar"></i> Events Calender</a>
+                                    Organizations <span class="badge">16</span></a> <a
+                                    class="nav-link {{ nav_set_active('calender.index') }}"
+                                    href="{{ route('calender.index') }}"><i class="far fa-calendar"></i> Events
+                                    Calender</a>
                                 @guest
                                 <a class="nav-link {{ nav_set_active(['login', 'register', 'password.request']) }}"
                                     href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> Login / Register </a>
@@ -207,9 +211,8 @@
     <script src="{{ asset('assets/vendor/pace/pace.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/stacked-menu/stacked-menu.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/flatpickr/flatpickr.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/easy-pie-chart/jquery.easypiechart.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/chart.js/Chart.min.js') }}"></script> <!-- END PLUGINS JS -->
+    <script src="{{ asset('assets/vendor/moment/moment.min.js') }}"></script>
+    @stack('scripts')
     <!-- BEGIN THEME JS -->
     <script src="{{ asset('assets/javascript/theme.min.js') }}"></script> <!-- END THEME JS -->
 </body>

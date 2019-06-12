@@ -76,7 +76,7 @@
                 <div class="col-lg-6">
                     <!-- .list-group -->
                     <div class="list-group list-group-media mb-3">
-                        <a href="#" class="list-group-item list-group-item-action">
+                        <a href="{{ route('events.show') }}" class="list-group-item list-group-item-action">
                             <div class="list-group-item-figure rounded-left">
                                 <img src="assets/images/dummy/img-5.jpg" alt="placeholder image">
                             </div>

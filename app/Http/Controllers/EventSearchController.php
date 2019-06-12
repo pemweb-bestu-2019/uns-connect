@@ -10,4 +10,9 @@ class EventSearchController extends Controller
     {
         return view('event_search.index');
     }
+
+    public function showEvent()
+    {
+        return view('event_search.show');
+    }
 }

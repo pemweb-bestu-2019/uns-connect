@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/events', 'EventSearchController@index')->name('events.index');
+Route::get('/events/view', 'EventSearchController@showEvent')->name('events.show');
 Route::get('/organizations', 'OrganizationController@index')->name('organizations.index');
 Route::get('/calender', 'EventsCalenderController@index')->name('calender.index');
 
