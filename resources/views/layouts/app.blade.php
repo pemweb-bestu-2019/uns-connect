@@ -184,7 +184,7 @@
                                     href="{{ route('events.index') }}"><i class="far fa-calendar"></i> Event Search</a>
                                 <a class="nav-link {{ nav_set_active('organizations.index') }}"
                                     href="{{ route('organizations.index') }}"><i class="far fa-building"></i>
-                                    Organizations <span class="badge">16</span></a> <a class="nav-link" href="#"><i
+                                    Organizations <span class="badge">16</span></a> <a class="nav-link {{ nav_set_active('calender.index') }}" href="{{ route('calender.index') }}"><i
                                         class="far fa-calendar"></i> Events Calender</a>
                                 @guest
                                 <a class="nav-link {{ nav_set_active(['login', 'register', 'password.request']) }}"
