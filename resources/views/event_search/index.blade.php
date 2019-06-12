@@ -1,4 +1,4 @@
-@extends('layouts.uns')
+@extends('layouts.app')
 
 @section('page-inner')
 <div class="page-inner container">

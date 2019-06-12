@@ -15,9 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', function () {
-    return view('test.index');
-});
+Route::get('/events', 'EventSearchController@index')->name('events.index');
 
 Auth::routes();
 
