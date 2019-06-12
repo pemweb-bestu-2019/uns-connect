@@ -174,7 +174,7 @@
                             <div class="nav nav-tabs">
                                 <a class="nav-link {{ nav_set_active('events.index') }}"
                                     href="{{ route('events.index') }}"><i class="far fa-calendar"></i> Event Search</a>
-                                <a class="nav-link" href="#"><i class="far fa-building"></i> Organizations <span
+                                <a class="nav-link {{ nav_set_active('organizations.index') }}" href="{{ route('organizations.index') }}"><i class="far fa-building"></i> Organizations <span
                                         class="badge">16</span></a> <a class="nav-link" href="#"><i
                                         class="fas fa-users"></i> Members</a> <a class="nav-link" href="#"><i
                                         class="far fa-calendar"></i> Events Calender</a> <a class="nav-link" href="#"><i

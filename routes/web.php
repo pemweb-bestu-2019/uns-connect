@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/events', 'EventSearchController@index')->name('events.index');
+Route::get('/organizations', 'OrganizationController@index')->name('organizations.index');
 
 Auth::routes();
 
