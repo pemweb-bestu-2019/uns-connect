@@ -89,6 +89,7 @@
                         </svg></a>
                 </div><!-- /.top-bar-brand -->
                 <!-- .top-bar-list -->
+                @auth
                 <div class="top-bar-list">
                     <!-- .top-bar-item -->
                     <div class="top-bar-item top-bar-item-right px-0">
@@ -148,9 +149,15 @@
                             <div class="dropdown-menu">
                                 <h6 class="dropdown-header d-none d-sm-block d-md-none"> Galih Akbar </h6><a
                                     class="dropdown-item" href="user-profile.html"><span
-                                        class="dropdown-icon oi oi-person"></span> Profile</a> <a class="dropdown-item"
-                                    href="auth-signin-v1.html"><span class="dropdown-icon oi oi-account-logout"></span>
-                                    Logout</a>
+                                        class="dropdown-icon oi oi-person"></span> Profile</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();"><span
+                                        class="dropdown-icon oi oi-account-logout"></span>
+                                    {{ __('Logout') }}</a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
+                                    @csrf
+                                </form>
                                 <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Help Center</a> <a
                                     class="dropdown-item" href="#">Ask Forum</a> <a class="dropdown-item"
                                     href="#">Keyboard Shortcuts</a>
@@ -158,6 +165,7 @@
                         </div><!-- /.btn-account -->
                     </div><!-- /.top-bar-item -->
                 </div><!-- /.top-bar-list -->
+                @endauth
             </div><!-- /.top-bar -->
         </header><!-- /.app-header -->
         <!-- .app-main -->
@@ -174,10 +182,14 @@
                             <div class="nav nav-tabs">
                                 <a class="nav-link {{ nav_set_active('events.index') }}"
                                     href="{{ route('events.index') }}"><i class="far fa-calendar"></i> Event Search</a>
-                                <a class="nav-link {{ nav_set_active('organizations.index') }}" href="{{ route('organizations.index') }}"><i class="far fa-building"></i> Organizations <span
-                                        class="badge">16</span></a> <a class="nav-link" href="#"><i
-                                        class="far fa-calendar"></i> Events Calender</a> <a class="nav-link" href="#"><i
-                                        class="fas fa-sign-in-alt"></i> Daftar / Masuk</a>
+                                <a class="nav-link {{ nav_set_active('organizations.index') }}"
+                                    href="{{ route('organizations.index') }}"><i class="far fa-building"></i>
+                                    Organizations <span class="badge">16</span></a> <a class="nav-link" href="#"><i
+                                        class="far fa-calendar"></i> Events Calender</a>
+                                @guest
+                                <a class="nav-link {{ nav_set_active(['login', 'register', 'password.request']) }}"
+                                    href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> Login / Register </a>
+                                @endguest
                             </div><!-- /.nav -->
                         </div><!-- /.nav-scroller -->
                     </nav><!-- /.page-navs -->
