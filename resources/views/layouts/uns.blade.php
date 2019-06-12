@@ -182,76 +182,7 @@
                         </div><!-- /.nav-scroller -->
                     </nav><!-- /.page-navs -->
                     <!-- .page-inner -->
-                    <div class="page-inner container">
-                        <!-- .page-title-bar -->
-                        <!-- .page-title-bar -->
-                        <header class="page-title-bar">
-                            <!-- page title stuff goes here -->
-                            <h1 class="page-title"> Sugeng Riyadi </h1>
-                        </header><!-- /.page-title-bar -->
-                        <!-- .page-section -->
-                        <div class="page-section">
-                            <!-- page content goes here -->
-                            <div class="section-block">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. Phasellus faucibus scelerisque eleifend
-                                    donec pretium. Auctor elit sed vulputate mi sit amet mauris. Faucibus vitae aliquet
-                                    nec ullamcorper sit amet risus. Cras adipiscing enim eu turpis egestas pretium.
-                                    Neque aliquam vestibulum morbi blandit cursus risus. Nunc pulvinar sapien et ligula
-                                    ullamcorper. Massa vitae tortor condimentum lacinia quis vel eros donec ac. Quis
-                                    ipsum suspendisse ultrices gravida dictum fusce. Porta non pulvinar neque laoreet
-                                    suspendisse interdum. Purus ut faucibus pulvinar elementum. Feugiat vivamus at augue
-                                    eget arcu dictum varius duis at. Semper risus in hendrerit gravida rutrum quisque
-                                    non. Cras semper auctor neque vitae tempus. Viverra maecenas accumsan lacus vel.</p>
-
-                                <p>Eget mi proin sed libero enim sed faucibus turpis in. Elit pellentesque habitant
-                                    morbi tristique senectus. Vitae semper quis lectus nulla. Sit amet porttitor eget
-                                    dolor morbi non arcu risus. Est ultricies integer quis auctor elit sed. Ut diam quam
-                                    nulla porttitor massa. Orci ac auctor augue mauris augue neque. Sagittis purus sit
-                                    amet volutpat consequat. Gravida rutrum quisque non tellus orci ac auctor. Sagittis
-                                    aliquam malesuada bibendum arcu vitae elementum curabitur vitae. At volutpat diam ut
-                                    venenatis tellus in metus vulputate. Orci eu lobortis elementum nibh. Odio euismod
-                                    lacinia at quis risus sed vulputate odio. Nunc vel risus commodo viverra maecenas
-                                    accumsan lacus. Id donec ultrices tincidunt arcu non sodales. In egestas erat
-                                    imperdiet sed euismod nisi porta. Proin sed libero enim sed faucibus turpis in eu
-                                    mi.</p>
-
-                                <p>Id neque aliquam vestibulum morbi blandit cursus risus at. Convallis tellus id
-                                    interdum velit laoreet id donec ultrices tincidunt. Rutrum quisque non tellus orci
-                                    ac auctor augue. Urna molestie at elementum eu facilisis sed. Sed ullamcorper morbi
-                                    tincidunt ornare massa eget egestas purus. Integer vitae justo eget magna fermentum
-                                    iaculis eu. Non pulvinar neque laoreet suspendisse interdum consectetur libero id.
-                                    Massa tempor nec feugiat nisl pretium fusce id. Massa tincidunt dui ut ornare. Quis
-                                    enim lobortis scelerisque fermentum dui faucibus in ornare quam. Pellentesque diam
-                                    volutpat commodo sed egestas egestas. Maecenas sed enim ut sem viverra aliquet eget.
-                                    Diam quam nulla porttitor massa id. Sit amet dictum sit amet justo donec enim diam
-                                    vulputate. Accumsan lacus vel facilisis volutpat est velit. Pretium lectus quam id
-                                    leo in. Arcu non sodales neque sodales. Nam aliquam sem et tortor consequat. Gravida
-                                    in fermentum et sollicitudin ac orci phasellus egestas tellus.</p>
-
-                                <p>Eget nunc scelerisque viverra mauris. Ligula ullamcorper malesuada proin libero nunc
-                                    consequat. Suspendisse faucibus interdum posuere lorem ipsum. Rhoncus aenean vel
-                                    elit scelerisque. Eu sem integer vitae justo. Nunc pulvinar sapien et ligula
-                                    ullamcorper malesuada. Id eu nisl nunc mi ipsum faucibus vitae. Mi proin sed libero
-                                    enim sed faucibus turpis in. Bibendum arcu vitae elementum curabitur vitae nunc. Dui
-                                    nunc mattis enim ut tellus. Faucibus turpis in eu mi bibendum neque egestas congue.
-                                    Varius sit amet mattis vulputate enim nulla aliquet. Varius quam quisque id diam vel
-                                    quam elementum pulvinar.</p>
-
-                                <p>Donec enim diam vulputate ut pharetra sit amet. Commodo sed egestas egestas fringilla
-                                    phasellus faucibus scelerisque eleifend donec. Lorem ipsum dolor sit amet
-                                    consectetur adipiscing elit ut aliquam. Pretium vulputate sapien nec sagittis.
-                                    Laoreet suspendisse interdum consectetur libero. Faucibus vitae aliquet nec
-                                    ullamcorper. Etiam dignissim diam quis enim lobortis scelerisque. Rhoncus mattis
-                                    rhoncus urna neque viverra justo nec. Faucibus a pellentesque sit amet porttitor. Id
-                                    semper risus in hendrerit gravida rutrum. Viverra tellus in hac habitasse platea
-                                    dictumst vestibulum rhoncus est. Vel pretium lectus quam id. Nullam eget felis eget
-                                    nunc lobortis mattis aliquam faucibus. Ante metus dictum at tempor commodo
-                                    ullamcorper a lacus vestibulum. Ut tristique et egestas quis ipsum suspendisse. Nunc
-                                    eget lorem dolor sed.</p>
-                            </div>
-                        </div><!-- /.page-section -->
-                    </div><!-- /.page-inner -->
+                    @yield('page-inner')
                 </div><!-- /.page -->
             </div><!-- /.wrapper -->
         </main><!-- /.app-main -->
