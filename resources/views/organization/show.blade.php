@@ -9,7 +9,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item active">
-                            <a href="{{ route('events.index') }}"><i
+                            <a href="{{ route('organizations.index') }}"><i
                                     class="breadcrumb-icon fa fa-angle-left mr-2"></i>Back</a>
                         </li>
                     </ol>

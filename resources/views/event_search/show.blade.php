@@ -1,6 +1,34 @@
 @extends('layouts.app')
 
 @section('page-inner')
+<header class="page-navs shadow-sm pr-3">
+    <!-- btn-account -->
+    <a href="{{ route('organizations.show') }}" class="btn-account">
+      <div class="user-avatar mr-2">
+        <img src="/assets/images/avatars/team4.jpg" alt="">
+      </div>
+      <div class="account-summary">
+        <h1 class="card-title"> Creative Division </h1>
+        <h6 class="card-subtitle text-muted"> 53 days left · Last update 1h </h6>
+      </div>
+    </a> <!-- /btn-account -->
+    <!-- right actions -->
+    <div class="ml-auto">
+      <!-- invite members -->
+      <div class="dropdown d-inline-block">
+        <button type="button" class="btn btn-light btn-icon" title="Invite members" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-plus"></i></button>
+        <div class="dropdown-arrow"></div><!-- .dropdown-menu -->
+        <div class="dropdown-menu dropdown-menu-right dropdown-menu-rich stop-propagation">
+          <div class="dropdown-header"> Add members </div>
+          <div class="form-group px-3 py-2 m-0">
+            <input type="text" class="form-control" placeholder="e.g. @bent10" data-toggle="tribute" data-remote="assets/data/tribute.json" data-menu-container="#people-list" data-item-template="true" data-autofocus="true"> <small class="form-text text-muted">Search people by username or email address to invite them.</small>
+          </div>
+          <div id="people-list" class="tribute-inline stop-propagation"></div><a href="#" class="dropdown-footer">Invite member by link <i class="far fa-clone"></i></a>
+        </div><!-- /.dropdown-menu -->
+      </div><!-- /invite members -->
+      <button type="button" class="btn btn-light btn-icon" data-toggle="sidebar"><i class="fa fa-angle-double-left"></i></button>
+    </div><!-- /right actions -->
+  </header>
 <div class="page-inner">
     <!-- .page-title-bar -->
     <header class="page-title-bar">
@@ -22,13 +50,8 @@
         <div class="row text-center text-sm-left">
             <!-- grid column -->
             <div class="col-sm-auto col-12 mb-2">
-                <!-- .has-badge -->
-                <div class="has-badge has-badge-bottom">
-                    <a href="#" class="user-avatar user-avatar-xl"><img src="/assets/images/dummy/img-5.jpg" alt=""></a>
-                    <span class="tile tile-circle tile-xs" data-toggle="tooltip" title=""
-                        data-original-title="Public"><i class="fas fa-globe"></i></span>
-                </div><!-- /.has-badge -->
-            </div><!-- /grid column -->
+                <span class="tile tile-xl bg-pink">SP</span>
+              </div>
             <!-- grid column -->
             <div class="col">
                 <h1 class="page-title"> Creative Division </h1>
@@ -42,6 +65,7 @@
             <div class="nav nav-tabs">
                 <a class="nav-link active" href="page-team.html">Overview</a>
                 <a class="nav-link" href="page-team.html">Map</a>
+                <a class="nav-link" href="page-team.html">Registration</a>
             </div><!-- /.nav -->
         </div><!-- /.nav-scroller -->
     </header><!-- /.page-title-bar -->
