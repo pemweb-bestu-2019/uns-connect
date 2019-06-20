@@ -11,12 +11,19 @@ class User extends Authenticatable
     use Notifiable;
 
     /**
+     * Primary key dari model
+     *
+     * @var array
+     */
+    protected $primaryKey = 'id_user';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'username', 'email', 'password',
     ];
 
     /**
@@ -25,15 +32,17 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password'
     ];
 
     /**
-     * The attributes that should be cast to native types.
+     * Relasi sebuah user memiliki data member yaitu
+     * informasi seperti nik dan lain sebagainya
      *
-     * @var array
+     * @return void
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function member()
+    {
+        return $this->hasOne(Member::class, 'id_user');
+    }
 }
