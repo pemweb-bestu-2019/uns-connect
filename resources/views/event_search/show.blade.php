@@ -74,7 +74,18 @@
         <!-- .section-block -->
         <div class="section-block">
             <!-- .metric-row -->
-
+            <p><strong>Google I/O</strong> adalah konferensi pengembang perangkat lunak tahunan yang diselenggarakan oleh Google di San Francisco, California. Google I/O menyediakan sesi mendalam teknik tinggi, difokuskan untuk membangun situs web, mobile, dan aplikasi yang digunakan untuk perusahaan dan teknologi web terbuka seperti Android, Google Chrome, Chrome OS, Google API, Google Web Toolkit, App Engine, dan lain-lain.</p>
+            <p>Google I/O dimulai pada tahun 2008. "I" dan "O" yang ada di Google I/O adalah input/output, dan "Innovation in the Open". Format dari acara tersebut mirip seperti dalam acara Google Developer Day</p>
+            <p>Google mengumumkan beberapa produk, di antaranya:
+                <ul>
+                    <li>Android Wear</li>
+                    <li>Android Auto</li>
+                    <li>Android TV</li>
+                    <li>Android One</li>
+                    <li>Aplikasi mobile Google Slides untuk Android</li>
+                </ul>
+            </p>
+            <p>Google Cardboard, sebuah kardus yang dilipat untuk dudukan telepon pintar yang apabila digabungkan dengan lensa, magnet, perekat yang biasa digunakan pada sepatu, karet gelang dan dipakai di wajah, memberikan pengalaman virtual reality kepada pengguna.</p>
         </div><!-- /.section-block -->
         <!-- .section-block -->
     </div><!-- /.page-section -->
