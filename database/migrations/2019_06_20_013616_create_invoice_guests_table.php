@@ -14,8 +14,21 @@ class CreateInvoiceGuestsTable extends Migration
     public function up()
     {
         Schema::create('invoice_guests', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->unsignedBigInteger('id_invoice');
+            $table->string('nik');
+            $table->string('name');
+            $table->enum('gender', ['L', 'P']);
+            $table->string('birth_place');
+            $table->date('birth_date');
+            $table->enum('religion', ['Islam', 'Kristen', 'Katolik', 'Hindu', 'Budha']);
+            $table->char('phone_number', 13);
+            $table->string('address');
+            $table->string('city');
+            $table->string('province');
             $table->timestamps();
+
+            $table->primary('id_invoice');
+            $table->foreign('id_invoice')->references('id_invoice')->on('invoices')->onDelete('restrict');
         });
     }
 

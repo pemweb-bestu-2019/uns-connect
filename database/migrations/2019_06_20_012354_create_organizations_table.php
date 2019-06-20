@@ -14,8 +14,19 @@ class CreateOrganizationsTable extends Migration
     public function up()
     {
         Schema::create('organizations', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id_organization');
+            $table->unsignedBigInteger('id_user');
+            $table->string('name');
+            $table->string('name_short');
+            $table->text('description');
+            $table->string('address');
+            $table->char('phone_number', 13)->nullable();
+            $table->string('website')->nullable();
             $table->timestamps();
+
+            $table->foreign('id_user')
+                ->references('id_user')->on('users')
+                ->onDelete('restrict');
         });
     }
 

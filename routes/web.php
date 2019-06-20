@@ -21,6 +21,9 @@ Route::get('/organizations', 'OrganizationController@index')->name('organization
 Route::get('/organizations/view', 'OrganizationController@showOrganization')->name('organizations.show');
 Route::get('/calender', 'EventsCalenderController@index')->name('calender.index');
 
-Auth::routes();
+Auth::routes([
+    'reset' => false,
+    'verify' => false
+]);
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -14,8 +14,11 @@ class CreateInvoicesTable extends Migration
     public function up()
     {
         Schema::create('invoices', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id_invoice');
+            $table->unsignedBigInteger('id_event');
             $table->timestamps();
+
+            $table->foreign('id_event')->references('id_event')->on('events')->onDelete('restrict');
         });
     }
 
