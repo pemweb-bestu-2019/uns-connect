@@ -17,10 +17,15 @@ Route::get('/', function () {
 
 Route::get('/events', 'EventSearchController@index')->name('events.index');
 Route::get('/events/view', 'EventSearchController@showEvent')->name('events.show');
+
 Route::get('/organizations', 'OrganizationController@index')->name('organizations.index');
 Route::get('/organizations/view', 'OrganizationController@showOrganization')->name('organizations.show');
+
 Route::get('/calender', 'EventsCalenderController@index')->name('calender.index');
-Route::get('/me/profile', 'UserController@profile')->name('me.profile');
+
+Route::get('/me/profile', 'UserController@showProfile')->name('me.profile');
+
+Route::get('/manage', 'ManageController@index')->name('manage.index');
 
 Auth::routes([
     'reset' => false,

@@ -45,4 +45,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Member::class, 'id_user');
     }
+
+    public function isAdmin()
+    {
+        return $this->username === 'moerbayaksa';
+    }
 }
