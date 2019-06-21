@@ -187,7 +187,7 @@
                                     href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> {{ __('Login / Register') }} </a>
                                 @else
                                 <a
-                                    class="nav-link {{ nav_set_active(['manage.index', 'manage.create']) }}"
+                                    class="nav-link {{ nav_set_active(['manage.index', 'manage.create', 'manage.owned']) }}"
                                     href="{{ route('manage.index') }}"><i class="fas fa-user-astronaut"></i> {{ __('You Organizations') }} </a>
                                 @endguest
                             </div><!-- /.nav -->

@@ -15,4 +15,9 @@ class ManageController extends Controller
     {
         return view('manage.create');
     }
+
+    public function showOwned()
+    {
+        return view('manage.owned');
+    }
 }
