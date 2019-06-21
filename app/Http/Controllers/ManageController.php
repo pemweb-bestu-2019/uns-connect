@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreOrganization;
+use App\Organization;
 
 class ManageController extends Controller
 {
@@ -33,5 +34,14 @@ class ManageController extends Controller
         auth()->user()->organizations()->create($attributes);
 
         return redirect()->route('manage.owned');
+    }
+
+    public function showOwnedEditPage(Organization $organization)
+    {
+        if (auth()->user()->isNot($organization->owner)) {
+            abort(403);
+        }
+
+        return view('manage.ownedEdit', compact('organization'));
     }
 }

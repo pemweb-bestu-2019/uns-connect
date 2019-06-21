@@ -23,7 +23,7 @@
                                 <div class="d-sm-flex justify-content-sm-between align-items-sm-center">
                                     <div class="team">
                                         <h4 class="list-group-item-title">
-                                            <a href="page-team.html">{{ $organization->name }}</a>
+                                            <a href="{{ route('manage.owned.edit', ['organization' => $organization->id_organization]) }}">{{ $organization->name }}</a>
                                         </h4>
                                         <p class="list-group-item-text"> {{ $organization->name_short }} </p>
                                     </div>
@@ -50,7 +50,7 @@
                                 </div>
                             </div>
                             <div class="list-group-item-figure">
-                                <a href="#" class="btn btn-sm btn-icon btn-secondary stop-propagation"><i
+                                <a href="{{ route('manage.owned.edit', ['organization' => $organization->id_organization]) }}" class="btn btn-sm btn-icon btn-secondary stop-propagation"><i
                                         class="fas fa-chevron-right"></i></a>
                             </div>
                         </div><!-- /.list-group-item -->

@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Organization extends Model
 {
     /**
+     * Primary key dari model
+     *
+     * @var array
+     */
+    protected $primaryKey = 'id_organization';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -24,5 +31,10 @@ class Organization extends Model
     public function events()
     {
         return $this->hasMany(Event::class, 'id_organization');
+    }
+
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'id_user');
     }
 }
