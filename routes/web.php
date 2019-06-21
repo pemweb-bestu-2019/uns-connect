@@ -28,6 +28,7 @@ Route::get('/me/profile', 'UserController@showProfile')->name('me.profile');
 
 Route::get('/manage', 'ManageController@index')->name('manage.index');
 Route::get('/manage/create', 'ManageController@showCreate')->name('manage.create');
+Route::get('/manage/owned', 'ManageController@showOwned')->name('manage.owned');
 
 Auth::routes([
     'reset' => false,
