@@ -15,7 +15,6 @@
                     <div class="card-body">
                         <form action="{{ route('manage.store') }}" method="post">
                             @csrf
-
                             <fieldset>
                                 <div class="row">
                                     <div class="col-md-8">
@@ -112,10 +111,9 @@
                                     <div class="input-group @error('registration_fee') is-invalid @enderror">
                                         <label class="input-group-prepend" for="pi9"><span
                                                 class="badge">Rp</span></label>
-                                        <input type="number"
-                                            class="form-control"
-                                            id="registration_fee" name="registration_fee" placeholder="" step="10000"
-                                            min="0" value="0" value="{{ old('registration_fee') }}">
+                                        <input type="number" class="form-control" id="registration_fee"
+                                            name="registration_fee" placeholder="" step="10000" min="0" value="0"
+                                            value="{{ old('registration_fee') }}">
                                     </div>
                                     @error('registration_fee')
                                     <span class="invalid-feedback" role="alert">

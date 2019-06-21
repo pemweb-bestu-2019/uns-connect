@@ -19,12 +19,14 @@ class ManageController extends Controller
 
     public function showOwned()
     {
-        return view('manage.owned');
+        $organizations = auth()->user()->organizations;
+
+        return view('manage.owned', compact('organizations'));
     }
 
     public function store(StoreOrganization $request)
     {
-        $attributes = $request->validate();
+        $attributes = $request->validated();
 
         $attributes['registration_open'] = $request->has('registration_open');
 
