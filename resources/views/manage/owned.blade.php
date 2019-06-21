@@ -16,8 +16,8 @@
                         @forelse ($organizations as $organization)
                         <div class="list-group-item">
                             <div class="list-group-item-figure">
-                                <a href="page-team.html" class="user-avatar user-avatar-md"><img
-                                        src="{{ asset('/assets/images/avatars/team2.png') }}" alt=""></a>
+                                <div class="tile tile-circle tile-md bg-blue"> {{ substr($organization->name, 0, 1) }}
+                                </div>
                             </div>
                             <div class="list-group-item-body">
                                 <div class="d-sm-flex justify-content-sm-between align-items-sm-center">
@@ -32,31 +32,37 @@
                                             data-placement="bottom" data-original-title="Members">
                                             <i class="fas fa-users text-teal"></i> 8 </li>
                                         <li class="list-inline-item mr-3" data-toggle="tooltip" title=""
-                                            data-placement="bottom" data-original-title="Clients">
-                                            <i class="fas fa-user-tie text-pink"></i> 3 </li>
-                                        <li class="list-inline-item mr-3" data-toggle="tooltip" title=""
-                                            data-placement="bottom" data-original-title="Projects">
-                                            <i class="fa fa-bookmark text-yellow"></i> 4 </li>
+                                            data-placement="bottom" data-original-title="Events">
+                                            <i class="fa fa-bookmark text-yellow"></i> {{ $organization->events()->count() }} </li>
+
+                                        @if($organization->registration_open)
+                                        <li class="list-inline-item" data-toggle="tooltip" title=""
+                                            data-original-title="Public">
+                                            <i class="fa fa-globe"></i>
+                                        </li>
+                                        @else
                                         <li class="list-inline-item" data-toggle="tooltip" title=""
                                             data-original-title="Private">
                                             <i class="fa fa-lock"></i>
                                         </li>
+                                        @endif
                                     </ul>
                                 </div>
                             </div>
                             <div class="list-group-item-figure">
                                 <a href="#" class="btn btn-sm btn-icon btn-secondary stop-propagation"><i
-                                        class="fas fa-ellipsis-h"></i></a>
+                                        class="fas fa-chevron-right"></i></a>
                             </div>
                         </div><!-- /.list-group-item -->
                         @empty
-                            @component('vendor.component.empty')
-                                <h3 class="state-header"> Belum ada Organisasi. </h3>
-                                <p class="state-description lead text-muted"> Mari buat sebuah organisasi pertama kamu dengan menekan tombol dibawah. </p>
-                                <div class="state-action">
-                                    <a href="{{ route('manage.create') }}" class="btn btn-primary">Buat Baru</a>
-                                </div>
-                            @endcomponent
+                        @component('vendor.component.empty')
+                        <h3 class="state-header"> Belum ada Organisasi. </h3>
+                        <p class="state-description lead text-muted"> Mari buat sebuah organisasi pertama kamu dengan
+                            menekan tombol dibawah. </p>
+                        <div class="state-action">
+                            <a href="{{ route('manage.create') }}" class="btn btn-primary">Buat Baru</a>
+                        </div>
+                        @endcomponent
                         @endforelse
                         <!-- .list-group-item -->
                     </div>
