@@ -175,21 +175,20 @@
                             <!-- .nav -->
                             <div class="nav nav-tabs">
                                 <a class="nav-link {{ nav_set_active(['events.index', 'events.show']) }}"
-                                    href="{{ route('events.index') }}"><i class="far fa-calendar"></i> Event Search</a>
+                                    href="{{ route('events.index') }}"><i class="far fa-calendar"></i> {{ __('Event Search') }} </a>
                                 <a class="nav-link {{ nav_set_active(['organizations.index', 'organizations.show']) }}"
                                     href="{{ route('organizations.index') }}"><i class="far fa-building"></i>
-                                    Organizations <span class="badge">16</span></a>
+                                    {{ __('Organizations') }} <span class="badge">16</span></a>
                                 <a
                                     class="nav-link {{ nav_set_active('calender.index') }}"
-                                    href="{{ route('calender.index') }}"><i class="far fa-calendar-alt"></i> Events
-                                    Calender</a>
+                                    href="{{ route('calender.index') }}"><i class="far fa-calendar-alt"></i> {{ __('Events Calender') }} </a>
                                 @guest
                                 <a class="nav-link {{ nav_set_active(['login', 'register', 'password.request']) }}"
-                                    href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> Login / Register </a>
+                                    href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> {{ __('Login / Register') }} </a>
                                 @else
                                 <a
                                     class="nav-link {{ nav_set_active(['manage.index', 'manage.create']) }}"
-                                    href="{{ route('manage.index') }}"><i class="fas fa-user-astronaut"></i> You Organizations </a>
+                                    href="{{ route('manage.index') }}"><i class="fas fa-user-astronaut"></i> {{ __('You Organizations') }} </a>
                                 @endguest
                             </div><!-- /.nav -->
                         </div><!-- /.nav-scroller -->
