@@ -35,11 +35,11 @@
     <link rel="stylesheet" href="{{ asset('assets/stylesheets/custom.css') }}"><!-- Disable unused skin immediately -->
 
     <style>
-        .nav-link>.fa,
-        .fas,
-        .far,
-        .fal,
-        .fab {
+        .nav-link > .fa,
+        .nav-link > .fas,
+        .nav-link > .far,
+        .nav-link > .fal,
+        .nav-link > .fab {
             margin-right: 5px;
         }
 
@@ -188,7 +188,7 @@
                                     href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> Login / Register </a>
                                 @else
                                 <a
-                                    class="nav-link {{ nav_set_active('manage.index') }}"
+                                    class="nav-link {{ nav_set_active(['manage.index', 'manage.create']) }}"
                                     href="{{ route('manage.index') }}"><i class="fas fa-user-astronaut"></i> You Organizations </a>
                                 @endguest
                             </div><!-- /.nav -->

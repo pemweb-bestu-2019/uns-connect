@@ -22,7 +22,8 @@ class CreateOrganizationsTable extends Migration
             $table->string('address');
             $table->char('phone_number', 13)->nullable();
             $table->string('website')->nullable();
-            $table->integer('registration_fee');
+            $table->boolean('registration_open')->default(false);
+            $table->integer('registration_fee')->default(0);
             $table->timestamps();
 
             $table->foreign('id_user')

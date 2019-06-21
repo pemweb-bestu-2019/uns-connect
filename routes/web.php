@@ -26,6 +26,7 @@ Route::get('/calender', 'EventsCalenderController@index')->name('calender.index'
 Route::get('/me/profile', 'UserController@showProfile')->name('me.profile');
 
 Route::get('/manage', 'ManageController@index')->name('manage.index');
+Route::get('/manage/create', 'ManageController@showCreate')->name('manage.create');
 
 Auth::routes([
     'reset' => false,

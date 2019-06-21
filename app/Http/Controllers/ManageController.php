@@ -10,4 +10,9 @@ class ManageController extends Controller
     {
         return view('manage.index');
     }
+
+    public function showCreate()
+    {
+        return view('manage.create');
+    }
 }
