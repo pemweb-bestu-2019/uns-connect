@@ -50,6 +50,10 @@
         .pace .pace-progress {
             background: #f6f7f9;
         }
+
+        .input-group.is-invalid~.invalid-feedback {
+            display: block;
+        }
     </style>
 </head>
 
