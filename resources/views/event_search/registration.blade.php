@@ -63,9 +63,9 @@
         <div class="nav-scroller border-bottom">
             <!-- .nav -->
             <div class="nav nav-tabs">
-                <a class="nav-link active" href="#">Overview</a>
+                <a class="nav-link" href="{{ route('events.show') }}">Overview</a>
                 <a class="nav-link" href="page-team.html">Map</a>
-                <a class="nav-link" href="{{ route('events.registration') }}">Registration</a>
+                <a class="nav-link active" href="#">Registration</a>
             </div><!-- /.nav -->
         </div><!-- /.nav-scroller -->
     </header><!-- /.page-title-bar -->

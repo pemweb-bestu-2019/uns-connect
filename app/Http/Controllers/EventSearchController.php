@@ -15,4 +15,8 @@ class EventSearchController extends Controller
     {
         return view('event_search.show');
     }
+    public function registration()
+    {
+        return view('event_search.registration');
+    }
 }

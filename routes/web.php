@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Route::get('/events', 'EventSearchController@index')->name('events.index');
 Route::get('/events/view', 'EventSearchController@showEvent')->name('events.show');
+Route::get('/events/registration', 'EventSearchController@registration')->name('events.registration');
 
 Route::get('/organizations', 'OrganizationController@index')->name('organizations.index');
 Route::get('/organizations/view', 'OrganizationController@showOrganization')->name('organizations.show');
