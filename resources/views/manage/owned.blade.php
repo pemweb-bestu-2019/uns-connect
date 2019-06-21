@@ -12,6 +12,7 @@
                 <!-- .card -->
                 <div class="card card-fluid">
                     <h6 class="card-header"> Organization List </h6><!-- .card-body -->
+                    @include('vendor.include.message_flash')
                     <div class="list-group list-group-flush list-group-divider">
                         @forelse ($organizations as $organization)
                         <div class="list-group-item">

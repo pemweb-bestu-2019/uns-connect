@@ -29,8 +29,10 @@ Route::get('/me/profile', 'UserController@showProfile')->name('me.profile');
 Route::get('/manage', 'ManageController@index')->name('manage.index');
 Route::get('/manage/create', 'ManageController@showCreate')->name('manage.create');
 Route::post('/manage/create', 'ManageController@store')->name('manage.store');
+
 Route::get('/manage/owned', 'ManageController@showOwned')->name('manage.owned');
 Route::get('/manage/owned/{organization}/edit', 'ManageController@showOwnedEditPage')->name('manage.owned.edit');
+Route::put('/manage/owned/{organization}/update', 'ManageController@update')->name('manage.owned.update');
 
 Auth::routes([
     'reset' => false,

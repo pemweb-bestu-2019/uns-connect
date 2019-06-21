@@ -13,6 +13,7 @@
                 <div class="card card-fluid">
                     <h6 class="card-header"> Organization List </h6><!-- .card-body -->
                     <div class="list-group list-group-flush list-group-divider">
+                        @include('vendor.include.message_flash')
                         <div class="list-group-item">
                             <div class="list-group-item-figure">
                                 <div class="tile tile-circle tile-md bg-blue"> {{ substr($organization->name, 0, 1) }}
@@ -50,7 +51,7 @@
                                 </div>
                             </div>
                             <div class="list-group-item-figure">
-                                <a href="{{ url()->previous() }}"
+                                <a href="{{ route('manage.owned') }}"
                                     class="btn btn-sm btn-icon btn-secondary stop-propagation"><i
                                         class="fas fa-times"></i></a>
                             </div>
@@ -69,7 +70,15 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="card-body">
-                                            <p class="text-muted">{{ $organization->address }}</p>
+                                            <form
+                                                action="{{ route('manage.owned.update', $organization->id_organization) }}"
+                                                method="post">
+                                                @method('PUT')
+                                                @csrf
+
+                                                @include('vendor.forms.organization', ['create' => false, 'delete' =>
+                                                true])
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
