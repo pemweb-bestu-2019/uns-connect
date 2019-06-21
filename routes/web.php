@@ -20,6 +20,7 @@ Route::get('/events/view', 'EventSearchController@showEvent')->name('events.show
 Route::get('/organizations', 'OrganizationController@index')->name('organizations.index');
 Route::get('/organizations/view', 'OrganizationController@showOrganization')->name('organizations.show');
 Route::get('/calender', 'EventsCalenderController@index')->name('calender.index');
+Route::get('/me/profile', 'UserController@profile')->name('me.profile');
 
 Auth::routes([
     'reset' => false,
