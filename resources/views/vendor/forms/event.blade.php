@@ -8,6 +8,19 @@
 
 <fieldset>
     <header class="pr-3 mb-3">
+        @if ($create)
+        <a href="https://uns-connect.app/organizations/view" class="btn-account">
+            <div class="mr-2">
+                <div class="tile tile-circle tile-md bg-blue"> {{ substr($organization->name, 0, 1) }}
+                </div>
+            </div>
+            <div class="account-summary">
+                <h1 class="card-title"> {{ $organization->name }} </h1>
+                <h6 class="card-subtitle text-muted"> {{ $organization->name_short }} ·
+                    <strong>{{ $organization->events()->count() }} Events</strong></h6>
+            </div>
+        </a>
+        @else
         <div class="btn-account">
             <div class="mr-2">
                 <div class="tile tile-circle tile-md bg-blue"> {{ substr($event->name, 0, 1) }}
@@ -23,6 +36,7 @@
                         class="fas fa-times"></i></a>
             </div>
         </div>
+        @endif
     </header>
     <hr>
     @include('vendor.include.message_flash')
