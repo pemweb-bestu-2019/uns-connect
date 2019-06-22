@@ -1,6 +1,3 @@
-@extends('layouts.app')
-
-@section('page-inner')
 <div class="page-inner container">
     <div class="page-section">
         <!-- grid row -->
@@ -60,30 +57,13 @@
                             <div class="nav-scroller border-bottom">
                                 <!-- .nav -->
                                 <div class="nav nav-tabs">
-                                    <a class="nav-link active" href="page-team.html">Settings</a>
-                                    <a class="nav-link" href="page-team.html">Report</a>
+                                    <a class="nav-link {{ nav_set_active('manage.owned.edit') }}" href="{{ route('manage.owned.edit', $organization->id_organization) }}">Settings</a>
+                                    <a class="nav-link {{ nav_set_active('manage.owned.report') }}" href="{{ route('manage.owned.report', $organization->id_organization) }}">Report</a>
                                 </div><!-- /.nav -->
                             </div>
                         </div>
-                        <div class="list-group-item">
-                            <div class="page-section">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="card-body">
-                                            <form
-                                                action="{{ route('manage.owned.update', $organization->id_organization) }}"
-                                                method="post">
-                                                @method('PUT')
-                                                @csrf
 
-                                                @include('vendor.forms.organization', ['create' => false, 'delete' =>
-                                                true])
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        {{ $slot }}
                         <!-- .list-group-item -->
                     </div>
                 </div><!-- /.card -->
@@ -92,4 +72,3 @@
         </div><!-- /grid row -->
     </div>
 </div><!-- /.page-inner -->
-@endsection

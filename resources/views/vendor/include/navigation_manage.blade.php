@@ -6,7 +6,7 @@
             <a href="{{ route('manage.index') }}" class="nav-link {{ nav_set_active('manage.index') }}">Registered
                 Organizations</a>
             <a href="{{ route('manage.owned') }}"
-                class="nav-link {{ nav_set_active(['manage.owned', 'manage.owned.edit']) }}">Owned Organizations</a>
+                class="nav-link {{ nav_set_active(['manage.owned', 'manage.owned.edit', 'manage.owned.report']) }}">Owned Organizations</a>
             <a href="{{ route('manage.create') }}" class="nav-link {{ nav_set_active('manage.create') }}"><i
                     class="fas fa-plus"></i> Create New</a>
         </nav><!-- /.nav -->

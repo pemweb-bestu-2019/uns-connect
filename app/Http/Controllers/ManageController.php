@@ -52,9 +52,7 @@ class ManageController extends Controller
 
     public function update(Organization $organization, StoreOrganization $request)
     {
-        if (auth()->user()->isNot($organization->owner)) {
-            abort(403);
-        }
+        $this->checkOwned($organization);
 
         if ($request->has('delete')) {
             $organization->delete();
@@ -81,10 +79,30 @@ class ManageController extends Controller
 
     public function showOwnedEditPage(Organization $organization)
     {
+        $this->checkOwned($organization);
+
+        return view('manage.owned.edit', compact('organization'));
+    }
+
+    public function showOwnedReportPage(Organization $organization)
+    {
+        $this->checkOwned($organization);
+
+        return view('manage.owned.report', compact('organization'));
+    }
+
+    /**
+     * Helper method to check where as
+     * the organizationis owned by user
+     *
+     * @param Organization $organization
+     * @return void
+     */
+    private function checkOwned(Organization $organization) {
         if (auth()->user()->isNot($organization->owner)) {
             abort(403);
         }
 
-        return view('manage.owned_edit', compact('organization'));
+        return;
     }
 }

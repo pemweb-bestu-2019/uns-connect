@@ -32,6 +32,7 @@ Route::post('/manage/create', 'ManageController@store')->name('manage.store');
 
 Route::get('/manage/owned', 'ManageController@showOwned')->name('manage.owned');
 Route::get('/manage/owned/{organization}/edit', 'ManageController@showOwnedEditPage')->name('manage.owned.edit');
+Route::get('/manage/owned/{organization}/report', 'ManageController@showOwnedReportPage')->name('manage.owned.report');
 Route::put('/manage/owned/{organization}/update', 'ManageController@update')->name('manage.owned.update');
 
 Auth::routes([
