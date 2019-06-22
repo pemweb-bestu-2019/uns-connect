@@ -66,13 +66,17 @@ class ManageController extends Controller
 
         $attributes = $request->validated();
 
-        $attributes['registration_open'] = $request->has('registration_open');
+        $attributes['registration_open'] = (int)$request->has('registration_open');
 
         $organization->update($attributes);
 
+        # check where as the data has been updated
+        if (!empty($organization->getChanges())) {
+            $request->session()->flash('success', 'Perubahan berhasil disimpan.');
+        }
+
         return redirect()
-            ->back()
-            ->with('success', 'Perubahan berhasil disimpan.');
+            ->back();
     }
 
     public function showOwnedEditPage(Organization $organization)
