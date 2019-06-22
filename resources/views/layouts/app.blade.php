@@ -196,10 +196,10 @@
                                 @else
                                 <a class="nav-link {{ nav_set_active(['orgs.index', 'orgs.create', 'orgs.owned', 'orgs.owned.edit', 'orgs.owned.report']) }}"
                                     href="{{ route('orgs.index') }}"><i class="fas fa-user-astronaut"></i>
-                                    {{ __('Your Organizations') }} </a>
-                                <a class="nav-link {{ nav_set_active(['ticket']) }}"
-                                    href="{{ route('orgs.index') }}"><i class="fas fa-ticket-alt"></i>
-                                    {{ __('Your Events') }} </a>
+                                    {{ __('Manage Organizations') }} </a>
+                                <a class="nav-link {{ nav_set_active(['tickets.index', 'tickets.owned']) }}"
+                                    href="{{ route('tickets.index') }}"><i class="fas fa-ticket-alt"></i>
+                                    {{ __('Manage Events') }} </a>
                                 @endguest
                             </div><!-- /.nav -->
                         </div><!-- /.nav-scroller -->

@@ -46,7 +46,10 @@ Route::prefix('orgs')->group(function() {
     Route::put('owned/{organization}/update', 'OrgsController@update')->name('orgs.owned.update');
 });
 
-
+Route::prefix('tickets')->group(function() {
+    Route::get('/', 'TicketController@index')->name('tickets.index');
+    Route::get('/owned', 'TicketController@showOwned')->name('tickets.owned');
+});
 
 Auth::routes([
     'reset' => false,

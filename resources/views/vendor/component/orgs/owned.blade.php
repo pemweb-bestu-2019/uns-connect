@@ -48,7 +48,7 @@
                                 </div>
                             </div>
                             <div class="list-group-item-figure">
-                                <a href="{{ route('manage.owned') }}"
+                                <a href="{{ route('orgs.owned') }}"
                                     class="btn btn-sm btn-icon btn-secondary stop-propagation"><i
                                         class="fas fa-times"></i></a>
                             </div>
@@ -57,8 +57,8 @@
                             <div class="nav-scroller border-bottom">
                                 <!-- .nav -->
                                 <div class="nav nav-tabs">
-                                    <a class="nav-link {{ nav_set_active('manage.owned.edit') }}" href="{{ route('manage.owned.edit', $organization->id_organization) }}">Settings</a>
-                                    <a class="nav-link {{ nav_set_active('manage.owned.report') }}" href="{{ route('manage.owned.report', $organization->id_organization) }}">Report</a>
+                                    <a class="nav-link {{ nav_set_active('orgs.owned.edit') }}" href="{{ route('orgs.owned.edit', $organization->id_organization) }}">Settings</a>
+                                    <a class="nav-link {{ nav_set_active('orgs.owned.report') }}" href="{{ route('orgs.owned.report', $organization->id_organization) }}">Report</a>
                                 </div><!-- /.nav -->
                             </div>
                         </div>
