@@ -15,25 +15,36 @@ Route::get('/', function () {
     return redirect()->route('events.index');
 });
 
-Route::get('/events', 'EventSearchController@index')->name('events.index');
-Route::get('/events/view', 'EventSearchController@showEvent')->name('events.show');
-Route::get('/events/registration', 'EventSearchController@registration')->name('events.registration');
+Route::prefix('events')->group(function() {
+    Route::get('/', 'EventSearchController@index')->name('events.index');
+    Route::get('view', 'EventSearchController@showEvent')->name('events.show');
+    Route::get('registration', 'EventSearchController@registration')->name('events.registration');
+});
 
-Route::get('/organizations', 'OrganizationController@index')->name('organizations.index');
-Route::get('/organizations/view', 'OrganizationController@showOrganization')->name('organizations.show');
+Route::prefix('organizations')->group(function() {
+    Route::get('/', 'OrganizationController@index')->name('organizations.index');
+    Route::get('view', 'OrganizationController@showOrganization')->name('organizations.show');
+});
 
 Route::get('/calender', 'EventsCalenderController@index')->name('calender.index');
 
 Route::get('/me/profile', 'UserController@showProfile')->name('me.profile');
 
-Route::get('/manage', 'ManageController@index')->name('manage.index');
-Route::get('/manage/create', 'ManageController@showCreate')->name('manage.create');
-Route::post('/manage/create', 'ManageController@store')->name('manage.store');
+/**
+ * Organization manages route
+ * group
+ */
+Route::prefix('or-administrator')->group(function() {
+    Route::get('/', 'ManageController@index')->name('manage.index');
 
-Route::get('/manage/owned', 'ManageController@showOwned')->name('manage.owned');
-Route::get('/manage/owned/{organization}/edit', 'ManageController@showOwnedEditPage')->name('manage.owned.edit');
-Route::get('/manage/owned/{organization}/report', 'ManageController@showOwnedReportPage')->name('manage.owned.report');
-Route::put('/manage/owned/{organization}/update', 'ManageController@update')->name('manage.owned.update');
+    Route::get('create', 'ManageController@showCreate')->name('manage.create');
+    Route::post('create', 'ManageController@store')->name('manage.store');
+
+    Route::get('owned', 'ManageController@showOwned')->name('manage.owned');
+    Route::get('owned/{organization}/edit', 'ManageController@showOwnedEditPage')->name('manage.owned.edit');
+    Route::get('owned/{organization}/report', 'ManageController@showOwnedReportPage')->name('manage.owned.report');
+    Route::put('owned/{organization}/update', 'ManageController@update')->name('manage.owned.update');
+});
 
 Auth::routes([
     'reset' => false,
