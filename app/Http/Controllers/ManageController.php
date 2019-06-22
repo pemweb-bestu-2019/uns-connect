@@ -8,6 +8,16 @@ use App\Organization;
 
 class ManageController extends Controller
 {
+    /**
+     * Instantiate a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         return view('manage.index');
@@ -35,7 +45,9 @@ class ManageController extends Controller
 
         auth()->user()->organizations()->create($attributes);
 
-        return redirect()->route('manage.owned');
+        return redirect()
+            ->route('manage.owned')
+            ->with('success', 'Organisasi berhasil dibuat.');
     }
 
     public function update(Organization $organization, StoreOrganization $request)
