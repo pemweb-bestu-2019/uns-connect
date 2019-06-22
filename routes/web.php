@@ -15,20 +15,48 @@ Route::get('/', function () {
     return redirect()->route('events.index');
 });
 
-Route::get('/events', 'EventSearchController@index')->name('events.index');
-Route::get('/events/view', 'EventSearchController@showEvent')->name('events.show');
-Route::get('/events/registration', 'EventSearchController@registration')->name('events.registration');
+Route::prefix('events')->group(function() {
+    Route::get('/', 'EventSearchController@index')->name('events.index');
+    Route::get('view', 'EventSearchController@showEvent')->name('events.show');
+    Route::get('registration', 'EventSearchController@registration')->name('events.registration');
+});
 
-Route::get('/organizations', 'OrganizationController@index')->name('organizations.index');
-Route::get('/organizations/view', 'OrganizationController@showOrganization')->name('organizations.show');
+Route::prefix('organizations')->group(function() {
+    Route::get('/', 'OrganizationController@index')->name('organizations.index');
+    Route::get('view', 'OrganizationController@showOrganization')->name('organizations.show');
+});
 
 Route::get('/calender', 'EventsCalenderController@index')->name('calender.index');
 
 Route::get('/me/profile', 'UserController@showProfile')->name('me.profile');
 
-Route::get('/manage', 'ManageController@index')->name('manage.index');
-Route::get('/manage/create', 'ManageController@showCreate')->name('manage.create');
-Route::get('/manage/owned', 'ManageController@showOwned')->name('manage.owned');
+/**
+ * Organization manages route
+ * group
+ */
+Route::prefix('orgs')->group(function() {
+    Route::get('/', 'OrgsController@index')->name('orgs.index');
+
+    Route::get('create', 'OrgsController@showCreate')->name('orgs.create');
+    Route::post('create', 'OrgsController@store')->name('orgs.store');
+
+    Route::get('owned', 'OrgsController@showOwned')->name('orgs.owned');
+    Route::get('owned/{organization}/edit', 'OrgsController@showOwnedEditPage')->name('orgs.owned.edit');
+    Route::get('owned/{organization}/report', 'OrgsController@showOwnedReportPage')->name('orgs.owned.report');
+    Route::put('owned/{organization}/update', 'OrgsController@update')->name('orgs.owned.update');
+});
+
+Route::prefix('tickets')->group(function() {
+    Route::get('/', 'TicketController@index')->name('tickets.index');
+    Route::get('owned', 'TicketController@showOwned')->name('tickets.owned');
+    Route::get('owned/select', 'TicketController@selectOrganization')->name('tickets.owned.select');
+
+    Route::get('owned/{organization}/create', 'TicketController@createEvent')->name('tickets.owned.create');
+    Route::post('owned/{organization}/store', 'TicketController@storeEvent')->name('tickets.owned.store');
+
+    Route::get('owned/{event}/edit', 'TicketController@showEventEditPage')->name('tickets.owned.edit');
+    Route::put('owned/{event}/update', 'TicketController@update')->name('tickets.owned.update');
+});
 
 Auth::routes([
     'reset' => false,
