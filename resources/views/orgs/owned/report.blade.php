@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('page-inner')
-@component('vendor.component.manage.owned', ['organization' => $organization])
+@component('vendor.component.orgs.owned', ['organization' => $organization])
 <div class="list-group-item">
     <div class="page-section">
         <div class="row">

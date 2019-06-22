@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreOrganization;
 use App\Organization;
 
-class ManageController extends Controller
+class OrgsController extends Controller
 {
     /**
      * Instantiate a new controller instance.
@@ -20,21 +20,21 @@ class ManageController extends Controller
 
     public function index()
     {
-        return view('manage.index');
+        return view('orgs.index');
     }
 
     public function showCreate()
     {
         $organization = new Organization;
 
-        return view('manage.create')->with(compact('organization'));
+        return view('orgs.create')->with(compact('organization'));
     }
 
     public function showOwned()
     {
         $organizations = auth()->user()->organizations;
 
-        return view('manage.owned', compact('organizations'));
+        return view('orgs.owned', compact('organizations'));
     }
 
     public function store(StoreOrganization $request)
@@ -46,7 +46,7 @@ class ManageController extends Controller
         auth()->user()->organizations()->create($attributes);
 
         return redirect()
-            ->route('manage.owned')
+            ->route('orgs.owned')
             ->with('success', 'Organisasi berhasil dibuat.');
     }
 
@@ -58,7 +58,7 @@ class ManageController extends Controller
             $organization->delete();
 
             return redirect()
-                ->route('manage.owned')
+                ->route('orgs.owned')
                 ->with('info', 'Organisasi berhasil dihapus.');
         }
 
@@ -81,14 +81,14 @@ class ManageController extends Controller
     {
         $this->checkOwned($organization);
 
-        return view('manage.owned.edit', compact('organization'));
+        return view('orgs.owned.edit', compact('organization'));
     }
 
     public function showOwnedReportPage(Organization $organization)
     {
         $this->checkOwned($organization);
 
-        return view('manage.owned.report', compact('organization'));
+        return view('orgs.owned.report', compact('organization'));
     }
 
     /**

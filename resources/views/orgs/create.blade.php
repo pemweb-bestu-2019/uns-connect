@@ -13,7 +13,7 @@
                 <div class="card card-fluid">
                     <h6 class="card-header"> New Organization </h6><!-- .card-body -->
                     <div class="card-body">
-                        <form action="{{ route('manage.store') }}" method="post">
+                        <form action="{{ route('orgs.store') }}" method="post">
                             @csrf
 
                             @include('vendor.forms.organization', ['create' => true, 'delete' => false])
