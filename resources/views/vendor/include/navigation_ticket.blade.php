@@ -5,7 +5,7 @@
                 Tickets</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link {{ nav_set_active('tickets.owned') }}" href="{{ route('tickets.owned') }}"><i class="fab fa-trello"></i> Your Events</a>
+            <a class="nav-link {{ nav_set_active(['tickets.owned', 'tickets.owned.create', 'tickets.owned.select']) }}" href="{{ route('tickets.owned') }}"><i class="fab fa-trello"></i> Your Events</a>
         </li>
     </ul>
 </div><!-- /.card-header -->

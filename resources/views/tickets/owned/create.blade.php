@@ -13,14 +13,13 @@
                     @include('vendor.include.navigation_ticket')
                     <!-- .card-body -->
                     <div class="card-body">
-                        @component('vendor.component.empty')
-                        <h3 class="state-header"> Tidak ada tiket. </h3>
-                        <p class="state-description lead text-muted"> Kamu belum beli tiket di event manapun.
-                        </p>
-                        <div class="state-action">
-                            <a href="{{ route('events.index') }}" class="btn btn-primary">Beli Tiket</a>
-                        </div>
-                        @endcomponent
+                        <a href="{{ url()->previous() }}" class="btn btn-primary"><i class="fas fa-undo-alt"></i> Select another organization</a>
+                        <hr>
+                        <form action="{{ route('tickets.owned.store', $organization->id_organization) }}" method="post">
+                            @csrf
+
+                            @include('vendor.forms.event', ['create' => true])
+                        </form>
                     </div><!-- /.card-body -->
                 </div>
                 <!-- .card -->

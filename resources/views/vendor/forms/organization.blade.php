@@ -84,7 +84,7 @@
         <label for="registration_fee">Registration Fee <span
                 class="badge badge-secondary"><em>Optional</em></span></label>
         <div class="input-group @error('registration_fee') is-invalid @enderror">
-            <label class="input-group-prepend" for="pi9"><span class="badge">Rp</span></label>
+            <label class="input-group-prepend" for="registration_fee"><span class="badge">Rp</span></label>
             <input type="number" class="form-control" id="registration_fee" name="registration_fee" placeholder=""
                 step="10000" min="0" value="{{ old('registration_fee', $organization->registration_fee) ?? 0 }}">
         </div>

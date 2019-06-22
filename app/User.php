@@ -51,6 +51,11 @@ class User extends Authenticatable
         return $this->hasMany(Organization::class, 'id_user');
     }
 
+    public function organizationsEvents()
+    {
+        return $this->hasManyThrough(Event::class, Organization::class, 'id_user', 'id_organization');
+    }
+
     public function isAdmin()
     {
         return $this->username === 'moerbayaksa';

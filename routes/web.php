@@ -48,7 +48,10 @@ Route::prefix('orgs')->group(function() {
 
 Route::prefix('tickets')->group(function() {
     Route::get('/', 'TicketController@index')->name('tickets.index');
-    Route::get('/owned', 'TicketController@showOwned')->name('tickets.owned');
+    Route::get('owned', 'TicketController@showOwned')->name('tickets.owned');
+    Route::get('owned/select', 'TicketController@selectOrganization')->name('tickets.owned.select');
+    Route::get('owned/{organization}/create', 'TicketController@createEvent')->name('tickets.owned.create');
+    Route::post('owned/{organization}/store', 'TicketController@storeEvent')->name('tickets.owned.store');
 });
 
 Auth::routes([
