@@ -13,12 +13,13 @@
                     @include('vendor.include.navigation_ticket')
                     <!-- .card-body -->
                     <div class="card-body">
-                        <a href="{{ url()->previous() }}" class="btn btn-primary"><i class="fas fa-undo-alt"></i> Select another organization</a>
+                        <a href="#" class="btn btn-primary"><i class="fas fa-donate"></i> Generate Report</a>
                         <hr>
-                        <form action="{{ route('tickets.owned.store', $organization->id_organization) }}" method="post">
+                        <form action="{{ route('tickets.owned.update', $event->id_event) }}" method="post">
+                            @method('PUT')
                             @csrf
 
-                            @include('vendor.forms.event', ['create' => true, 'delete' => false])
+                            @include('vendor.forms.event', ['create' => false, 'delete' => true])
                         </form>
                     </div><!-- /.card-body -->
                 </div>

@@ -8,19 +8,24 @@
 
 <fieldset>
     <header class="pr-3 mb-3">
-        <a href="https://uns-connect.app/organizations/view" class="btn-account">
+        <div class="btn-account">
             <div class="mr-2">
-                <div class="tile tile-circle tile-md bg-blue"> {{ substr($organization->name, 0, 1) }}
+                <div class="tile tile-circle tile-md bg-blue"> {{ substr($event->name, 0, 1) }}
                 </div>
             </div>
             <div class="account-summary">
-                <h1 class="card-title"> {{ $organization->name }} </h1>
-                <h6 class="card-subtitle text-muted"> {{ $organization->name_short }} · <strong>{{ $organization->events()->count() }} Events</strong></h6>
+                <h1 class="card-title"> {{ $event->name }} </h1>
+                <h6 class="card-subtitle text-muted"> {{ $organization->name }} ·
+                    <strong>{{ $organization->name_short }} Events</strong></h6>
             </div>
-        </a>
+            <div class="mr-0">
+                <a href="{{ route('tickets.owned') }}" class="btn btn-sm btn-icon btn-secondary stop-propagation"><i
+                        class="fas fa-times"></i></a>
+            </div>
+        </div>
     </header>
     <hr>
-
+    @include('vendor.include.message_flash')
     <div class="form-group">
         <label for="name">Event Name</label>
         <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
@@ -128,15 +133,20 @@
         </div>
     </div>
     <div class="form-group">
-            <label>Settings</label>
-            <div class="custom-control custom-checkbox mb-1">
-                <input type="checkbox" class="custom-control-input" id="is_private" name="is_private" @if($organization->is_private) checked="checked" @endif> <label
-                    class="custom-control-label" for="is_private">Private Event</label>
-                <div class="text-muted"> Mengakibatkan event hanya bisa diregister oleh member organisasi sendiri. </div>
-            </div>
+        <label>Settings</label>
+        <div class="custom-control custom-checkbox mb-1">
+            <input type="checkbox" class="custom-control-input" id="is_private" name="is_private"
+                @if($event->is_private) checked="checked" @endif> <label class="custom-control-label"
+                for="is_private">Private Event</label>
+            <div class="text-muted"> Mengakibatkan event hanya bisa diregister oleh member organisasi sendiri. </div>
         </div>
-        <hr>
-        <div class="form-actions">
-            <button type="submit" class="btn btn-primary">@if($create) Create Event @else Update Organization @endif</button>
-        </div>
+    </div>
+    <hr>
+    <div class="form-actions">
+        @if($delete)
+        <button type="submit" name="delete" value="1" class="btn btn-danger ml-auto"><i class="far fa-trash-alt"></i>
+            Delete Event</button>
+        @endif
+        <button type="submit" class="btn btn-primary">@if($create) Create Event @else Update Event @endif</button>
+    </div>
 </fieldset>

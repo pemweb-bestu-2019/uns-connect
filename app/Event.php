@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     /**
+     * Primary key dari model
+     *
+     * @var array
+     */
+    protected $primaryKey = 'id_event';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array

@@ -83,4 +83,44 @@ class TicketController extends Controller
             ->route('tickets.owned')
             ->with('success', 'Event berhasil dibuat.');
     }
+
+    public function update(Event $event, StoreEvent $request)
+    {
+        if (auth()->user()->isNot($event->organization->owner)) {
+            abort(403);
+        }
+
+        if ($request->has('delete')) {
+            $event->delete();
+
+            return redirect()
+                ->route('tickets.owned')
+                ->with('info', 'Event berhasil dihapus.');
+        }
+
+        $attributes = $request->validated();
+
+        $attributes['is_private'] = (int)$request->has('is_private');
+
+        $event->update($attributes);
+
+        # check where as the data has been updated
+        if (!empty($event->getChanges())) {
+            $request->session()->flash('success', 'Perubahan berhasil disimpan.');
+        }
+
+        return redirect()
+            ->back();
+    }
+
+    public function showEventEditPage(Event $event)
+    {
+        $organization = $event->organization;
+
+        if (auth()->user()->isNot($organization->owner)) {
+            abort(403);
+        }
+
+        return view('tickets.owned.edit', compact('organization', 'event'));
+    }
 }

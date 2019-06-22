@@ -197,7 +197,7 @@
                                 <a class="nav-link {{ nav_set_active(['orgs.index', 'orgs.create', 'orgs.owned', 'orgs.owned.edit', 'orgs.owned.report']) }}"
                                     href="{{ route('orgs.index') }}"><i class="fas fa-user-astronaut"></i>
                                     {{ __('Manage Organizations') }} </a>
-                                <a class="nav-link {{ nav_set_active(['tickets.index', 'tickets.owned', 'tickets.owned.create', 'tickets.owned.select']) }}"
+                                <a class="nav-link {{ nav_set_active(['tickets.index', 'tickets.owned', 'tickets.owned.create', 'tickets.owned.select', 'tickets.owned.edit']) }}"
                                     href="{{ route('tickets.index') }}"><i class="fas fa-ticket-alt"></i>
                                     {{ __('Manage Events') }} </a>
                                 @endguest

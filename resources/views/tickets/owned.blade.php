@@ -14,7 +14,7 @@
                     <!-- .card-body -->
                     <div class="card-body">
                         @include('vendor.include.message_flash')
-                        @if ($events)
+                        @if ($events->count() > 0)
                         <a href="{{ route('tickets.owned.select') }}" class="btn btn-primary"><i
                                 class="fas fa-plus"></i> Create Event</a>
                         <hr>
@@ -37,7 +37,7 @@
                                     </div>
                                 </div>
                                 <div class="list-group-item-figure">
-                                    <a href="#" class="btn btn-sm btn-icon btn-secondary stop-propagation"><i
+                                    <a href="{{ route('tickets.owned.edit', $event->id_event) }}" class="btn btn-sm btn-icon btn-secondary stop-propagation"><i
                                             class="fas fa-chevron-right"></i></a>
                                 </div>
                             </div><!-- /.list-group-item -->
