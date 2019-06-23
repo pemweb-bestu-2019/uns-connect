@@ -29,7 +29,7 @@
             <div class="account-summary">
                 <h1 class="card-title"> {{ $event->name }} </h1>
                 <h6 class="card-subtitle text-muted"> {{ $organization->name }} ·
-                    <strong>{{ $organization->name_short }} Events</strong></h6>
+                    <strong>{{ $organization->name_short }} Event</strong></h6>
             </div>
             <div class="mr-0">
                 <a href="{{ route('tickets.owned') }}" class="btn btn-sm btn-icon btn-secondary stop-propagation"><i

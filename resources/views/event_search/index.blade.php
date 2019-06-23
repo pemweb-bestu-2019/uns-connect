@@ -31,14 +31,15 @@
                 <div class="col-lg-6">
                     <!-- .list-group -->
                     <div class="list-group list-group-media mb-3">
-                        <a href="{{ route('events.show') }}" class="list-group-item list-group-item-action">
+                        <a href="{{ route('events.show', $event->slug) }}" class="list-group-item list-group-item-action">
                             <div class="list-group-item-figure rounded-left">
-                                <img src="assets/images/dummy/img-5.jpg" alt="placeholder image">
+                                <img src="assets/images/dummy/img-1.jpg" alt="placeholder image">
                             </div>
                             <div class="list-group-item-body">
-                                <h4 class="list-group-item-title"> Expanding Your Home Network’s Reach </h4>
-                                <p class="list-group-item-text"> A incidunt, corrupti. Quasi, incidunt ab, vel quidem
-                                    debitis fuga? Delectus, ipsam... </p>
+                                <h4 class="list-group-item-title"> {{ $event->name }} </h4>
+                                <p class="list-group-item-text"> {{ Str::limit($event->description, 100) }} </p>
+                                <hr>
+                                <p class="list-group-item-text"><span class="badge badge-lg badge-primary"><span class="oi oi-media-record pulse mr-1"></span>{{ $event->organization->name }}</span></p>
                             </div>
                         </a>
 

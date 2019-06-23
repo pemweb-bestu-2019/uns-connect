@@ -32,4 +32,14 @@ class Event extends Model
     {
         return $this->belongsTo(Organization::class, 'id_organization');
     }
+
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

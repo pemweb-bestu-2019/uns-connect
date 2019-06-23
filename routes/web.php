@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::prefix('events')->group(function() {
     Route::get('/', 'EventSearchController@index')->name('events.index');
-    Route::get('view', 'EventSearchController@showEvent')->name('events.show');
+    Route::get('{event}/overview', 'EventSearchController@showEvent')->name('events.show');
     Route::get('registration', 'EventSearchController@registration')->name('events.registration');
 });
 

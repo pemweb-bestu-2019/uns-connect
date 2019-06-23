@@ -9,14 +9,14 @@ class EventSearchController extends Controller
 {
     public function index()
     {
-        $events = Event::all(['slug', 'name', 'description']);
+        $events = Event::all();
 
         return view('event_search.index', compact('events'));
     }
 
-    public function showEvent()
+    public function showEvent(Event $event)
     {
-        return view('event_search.show');
+        return view('event_search.show', compact($event));
     }
 
     public function registration()
