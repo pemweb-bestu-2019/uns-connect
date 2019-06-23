@@ -54,6 +54,10 @@
         .input-group.is-invalid~.invalid-feedback {
             display: block;
         }
+
+        .no-block {
+            width: auto !important;
+        }
     </style>
 </head>
 
