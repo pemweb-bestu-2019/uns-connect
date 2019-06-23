@@ -37,7 +37,7 @@
                                     </div>
                                 </div>
                                 <div class="list-group-item-figure">
-                                    <a href="{{ route('tickets.owned.edit', $event->id_event) }}" class="btn btn-sm btn-icon btn-secondary stop-propagation"><i
+                                    <a href="{{ route('tickets.owned.edit', $event->slug) }}" class="btn btn-sm btn-icon btn-secondary stop-propagation"><i
                                             class="fas fa-chevron-right"></i></a>
                                 </div>
                             </div><!-- /.list-group-item -->

@@ -54,6 +54,10 @@
         .input-group.is-invalid~.invalid-feedback {
             display: block;
         }
+
+        .no-block {
+            width: auto !important;
+        }
     </style>
 </head>
 
@@ -180,7 +184,7 @@
                         <div class="nav-scroller">
                             <!-- .nav -->
                             <div class="nav nav-tabs">
-                                <a class="nav-link {{ nav_set_active(['events.index', 'events.show']) }}"
+                                <a class="nav-link {{ nav_set_active(['events.index', 'events.show', 'events.registration']) }}"
                                     href="{{ route('events.index') }}"><i class="far fa-calendar"></i>
                                     {{ __('Event Search') }} </a>
                                 <a class="nav-link {{ nav_set_active(['organizations.index', 'organizations.show']) }}"
