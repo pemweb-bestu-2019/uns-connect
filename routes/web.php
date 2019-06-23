@@ -18,12 +18,12 @@ Route::get('/', function () {
 Route::prefix('events')->group(function() {
     Route::get('/', 'EventSearchController@index')->name('events.index');
     Route::get('{event}/overview', 'EventSearchController@showEvent')->name('events.show');
-    Route::get('registration', 'EventSearchController@registration')->name('events.registration');
+    Route::get('{event}/registration', 'EventSearchController@registration')->name('events.registration');
 });
 
 Route::prefix('organizations')->group(function() {
     Route::get('/', 'OrganizationController@index')->name('organizations.index');
-    Route::get('view', 'OrganizationController@showOrganization')->name('organizations.show');
+    Route::get('{organization}/view', 'OrganizationController@showOrganization')->name('organizations.show');
 });
 
 Route::get('/calender', 'EventsCalenderController@index')->name('calender.index');

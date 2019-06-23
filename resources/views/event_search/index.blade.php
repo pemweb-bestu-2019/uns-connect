@@ -6,7 +6,7 @@
     <!-- .page-title-bar -->
     <header class="page-title-bar">
         <!-- page title stuff goes here -->
-        <h1 class="page-title"> {{ __('Event Search') }} <small class="badge">{{ $events->count() }} Totals</small>
+        <h1 class="page-title"> {{ __('Events') }} <small class="badge">{{ $events->count() }} Totals</small>
         </h1>
         <p class="text-muted"> Event adalah tempat terbaik untuk meningkatkan skill akademik anda. </p>
     </header><!-- /.page-title-bar -->

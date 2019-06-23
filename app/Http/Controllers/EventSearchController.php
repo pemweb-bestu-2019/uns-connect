@@ -16,11 +16,11 @@ class EventSearchController extends Controller
 
     public function showEvent(Event $event)
     {
-        return view('event_search.show', compact($event));
+        return view('event_search.show', compact('event'));
     }
 
-    public function registration()
+    public function registration(Event $event)
     {
-        return view('event_search.registration');
+        return view('event_search.registration', compact('event'));
     }
 }

@@ -3,13 +3,15 @@
 @section('page-inner')
 <header class="page-navs shadow-sm pr-3">
     <!-- btn-account -->
-    <a href="{{ route('organizations.show') }}" class="btn-account">
-        <div class="user-avatar mr-2">
-            <img src="/assets/images/avatars/team4.jpg" alt="">
+    <a href="{{ route('organizations.show', $event->organization->id_organization) }}" class="btn-account">
+        <div class="mr-2">
+            <div class="tile tile-circle tile-md bg-blue"> {{ substr($event->organization->name, 0, 1) }}
+            </div>
         </div>
         <div class="account-summary">
-            <h1 class="card-title"> Creative Division </h1>
-            <h6 class="card-subtitle text-muted"> 53 days left · Last update 1h </h6>
+            <h1 class="card-title"> {{ $event->organization->name }} </h1>
+            <h6 class="card-subtitle text-muted"> <strong>{{ $event->organization->name_short }}</strong> · Last update
+                {{ $event->organization->updated_at->diffForHumans() }} </h6>
         </div>
     </a> <!-- /btn-account -->
     <!-- right actions -->
@@ -57,13 +59,16 @@
         <div class="row text-center text-sm-left">
             <!-- grid column -->
             <div class="col-sm-auto col-12 mb-2">
-                <span class="tile tile-xl bg-pink">SP</span>
+                <span class="tile tile-xl bg-blue">{{ substr($event->name, 0, 2) }}</span>
             </div>
             <!-- grid column -->
             <div class="col">
-                <h1 class="page-title"> Creative Division </h1>
-                <p class="text-muted"> We make stunning and cool responsive web and app design which suitable for any
-                    project purpose for your business. </p>
+                <h1 class="page-title"> {{ $event->name }} </h1>
+                <ul class="list-icons mb-3">
+                    <li>
+                        <span class="list-icon"><span class="fa fa-map-marker text-muted"></span></span> {{ $event->organization->address }}
+                    </li>
+                </ul>
             </div><!-- /grid column -->
         </div><!-- /grid row -->
         <!-- .nav-scroller -->
@@ -72,7 +77,7 @@
             <div class="nav nav-tabs">
                 <a class="nav-link active" href="#">Overview</a>
                 <a class="nav-link" href="page-team.html">Map</a>
-                <a class="nav-link" href="{{ route('events.registration') }}">Registration</a>
+                <a class="nav-link" href="{{ route('events.registration', $event->slug) }}">Registration</a>
             </div><!-- /.nav -->
         </div><!-- /.nav-scroller -->
     </header><!-- /.page-title-bar -->
@@ -81,25 +86,7 @@
         <!-- .section-block -->
         <div class="section-block">
             <!-- .metric-row -->
-            <p><strong>Google I/O</strong> adalah konferensi pengembang perangkat lunak tahunan yang diselenggarakan
-                oleh Google di San Francisco, California. Google I/O menyediakan sesi mendalam teknik tinggi, difokuskan
-                untuk membangun situs web, mobile, dan aplikasi yang digunakan untuk perusahaan dan teknologi web
-                terbuka seperti Android, Google Chrome, Chrome OS, Google API, Google Web Toolkit, App Engine, dan
-                lain-lain.</p>
-            <p>Google I/O dimulai pada tahun 2008. "I" dan "O" yang ada di Google I/O adalah input/output, dan
-                "Innovation in the Open". Format dari acara tersebut mirip seperti dalam acara Google Developer Day</p>
-            <p>Google mengumumkan beberapa produk, di antaranya:
-                <ul>
-                    <li>Android Wear</li>
-                    <li>Android Auto</li>
-                    <li>Android TV</li>
-                    <li>Android One</li>
-                    <li>Aplikasi mobile Google Slides untuk Android</li>
-                </ul>
-            </p>
-            <p>Google Cardboard, sebuah kardus yang dilipat untuk dudukan telepon pintar yang apabila digabungkan dengan
-                lensa, magnet, perekat yang biasa digunakan pada sepatu, karet gelang dan dipakai di wajah, memberikan
-                pengalaman virtual reality kepada pengguna.</p>
+            {!! nl2br(e($event->description)) !!}
         </div><!-- /.section-block -->
         <!-- .section-block -->
     </div><!-- /.page-section -->
