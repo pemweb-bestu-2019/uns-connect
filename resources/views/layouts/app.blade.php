@@ -196,7 +196,7 @@
                                 @guest
                                 <a class="nav-link {{ nav_set_active(['login', 'register', 'password.request']) }}"
                                     href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i>
-                                    {{ __('Login / Register') }} </a>
+                                    {{ __('Authentikasi') }} </a>
                                 @else
                                 <a class="nav-link {{ nav_set_active(['orgs.index', 'orgs.create', 'orgs.owned', 'orgs.owned.edit', 'orgs.owned.report']) }}"
                                     href="{{ route('orgs.index') }}"><i class="fas fa-user-astronaut"></i>
