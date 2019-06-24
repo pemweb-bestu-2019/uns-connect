@@ -33,6 +33,7 @@ Route::prefix('organizations')->group(function() {
 Route::get('/calender', 'EventsCalenderController@index')->name('calender.index');
 
 Route::prefix('me')->group(function () {
+    Route::get('/', 'UserController@index')->name('me.index');
     Route::get('profile', 'UserController@showProfile')->name('me.profile');
 });
 

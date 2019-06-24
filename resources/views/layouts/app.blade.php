@@ -204,6 +204,9 @@
                                 <a class="nav-link {{ nav_set_active(['tickets.index', 'tickets.owned', 'tickets.owned.create', 'tickets.owned.select', 'tickets.owned.edit']) }}"
                                     href="{{ route('tickets.index') }}"><i class="fas fa-ticket-alt"></i>
                                     {{ __('Manage Events') }} </a>
+                                <a class="nav-link {{ nav_set_active(['me.index', 'me.profile']) }}"
+                                    href="{{ route('me.index') }}"><i class="fas fa-cloud-meatball"></i>
+                                    {{ __('Me') }} </a>
                                 @endguest
                             </div><!-- /.nav -->
                         </div><!-- /.nav-scroller -->

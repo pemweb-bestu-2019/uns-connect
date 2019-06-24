@@ -11,7 +11,7 @@
             <div class="col-lg-8">
                 <!-- .card -->
                 <div class="card card-fluid">
-                    <h6 class="card-header"> Update Data Diri </h6><!-- .card-body -->
+                    <h6 class="card-header"> Your Information </h6><!-- .card-body -->
                     <div class="list-group list-group-flush list-group-divider">
                         @component('vendor.component.empty')
                         <h3 class="state-header"> Belum daftar dimanapun. </h3>
