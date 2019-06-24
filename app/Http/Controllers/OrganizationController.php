@@ -14,8 +14,8 @@ class OrganizationController extends Controller
         return view('organization.index', compact('organizations'));
     }
 
-    public function showOrganization()
+    public function showOrganization(Organization $organization)
     {
-        return view('organization.show');
+        return view('organization.show', compact('organization'));
     }
 }

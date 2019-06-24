@@ -17,26 +17,23 @@
         </div>
         <!-- /.d-flex -->
         <h1 class="page-title">
-            <i class="far fa-building text-muted mr-2"></i> Zathunicon, Inc. </h1>
-        <p class="text-muted"> San Francisco, United States </p>
+            <i class="far fa-building text-muted mr-2"></i> {{ $organization->name }} ({{ $organization->name_short }})</h1>
+        <p class="text-muted"> {{ $organization->address }} </p>
         <!-- .nav-scroller -->
         <div class="nav-scroller border-bottom">
             <!-- .nav-tabs -->
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link active show" data-toggle="tab" href="#client-billing-contact">Billing &amp; Contact</a>
+                    <a class="nav-link active" href="#client-billing-contact">Description &amp; Contacts</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#client-tasks">To Do</a>
+                    <a class="nav-link" href="#client-tasks">Members</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#client-projects">Projects</a>
+                    <a class="nav-link" href="#client-projects">Registration</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#client-invoices">Invoices</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#client-expenses">Expenses</a>
+                    <a class="nav-link" href="#client-invoices">Events</a>
                 </li>
             </ul>
             <!-- /.nav-tabs -->
@@ -51,52 +48,13 @@
                     <!-- .card-body -->
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center">
-                            <h2 id="client-billing-contact-tab" class="card-title"> Billing Address </h2>
-                            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#clientBillingEditModal">Edit</button>
+                            <h2 id="client-billing-contact-tab" class="card-title"> Description</h2>
                         </div>
-                        <address> 280 Suzanne Throughway, Breannabury<br> San Francisco, 45801<br> United States </address>
+                        <p>{{ $organization->description }}</p>
                     </div>
                     <!-- /.card-body -->
                 </div>
                 <!-- /.card -->
-                <!-- .card -->
-                <div class="card mt-4">
-                    <!-- .card-body -->
-                    <div class="card-body">
-                        <h2 class="card-title"> Contacts </h2>
-                        <!-- .table-responsive -->
-                        <div class="table-responsive">
-                            <table class="table table-hover" style="min-width: 678px">
-                                <thead>
-                                    <tr>
-                                        <th> Name </th>
-                                        <th> Email </th>
-                                        <th> Phone </th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="align-middle"> Alexane Collins </td>
-                                        <td class="align-middle"> fhauck@gmail.com </td>
-                                        <td class="align-middle"> (062) 109-9222 </td>
-                                        <td class="align-middle text-right">
-                                            <button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#clientContactEditModal"><i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span></button>
-                                            <button type="button" class="btn btn-sm btn-icon btn-secondary"><i class="far fa-trash-alt"></i> <span class="sr-only">Remove</span></button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- /.table-responsive -->
-                    </div>
-                    <!-- /.card-body -->
-                    <!-- .card-footer -->
-                    <div class="card-footer">
-                        <a href="#clientContactNewModal" class="card-footer-item" data-toggle="modal"><i class="fa fa-plus-circle mr-1"></i> Add contact</a>
-                    </div>
-                    <!-- /.card-footer -->
-                </div>
                 <!-- /.card -->
             </div>
             <!-- /.tab-pane -->

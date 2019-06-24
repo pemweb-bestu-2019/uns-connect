@@ -189,7 +189,7 @@
                                     {{ __('Event Search') }} </a>
                                 <a class="nav-link {{ nav_set_active(['organizations.index', 'organizations.show']) }}"
                                     href="{{ route('organizations.index') }}"><i class="far fa-building"></i>
-                                    {{ __('Organizations') }} <span class="badge">16</span></a>
+                                    {{ __('Organizations') }}</a>
                                 <a class="nav-link {{ nav_set_active('calender.index') }}"
                                     href="{{ route('calender.index') }}"><i class="far fa-calendar-alt"></i>
                                     {{ __('Events Calender') }} </a>
