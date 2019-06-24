@@ -75,6 +75,8 @@ class TicketController extends Controller
         }
 
         $attributes['slug'] = $slug;
+        $attributes['date_eventday'] .= ':00';
+        $attributes['date_register_close'] .= ':00';
         $attributes['is_private'] = $request->has('is_private');
 
         $organization->events()->create($attributes);
@@ -100,6 +102,8 @@ class TicketController extends Controller
 
         $attributes = $request->validated();
 
+        $attributes['date_eventday'] .= ':00';
+        $attributes['date_register_close'] .= ':00';
         $attributes['is_private'] = (int)$request->has('is_private');
 
         $event->update($attributes);
