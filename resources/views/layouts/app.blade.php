@@ -187,7 +187,7 @@
                                 <a class="nav-link {{ nav_set_active(['events.index', 'events.show', 'events.registration']) }}"
                                     href="{{ route('events.index') }}"><i class="far fa-calendar"></i>
                                     {{ __('Event Search') }} </a>
-                                <a class="nav-link {{ nav_set_active(['organizations.index', 'organizations.show']) }}"
+                                <a class="nav-link {{ nav_set_active(['organizations.index', 'organizations.show', 'organizations.members', 'organizations.events', 'organizations.registration']) }}"
                                     href="{{ route('organizations.index') }}"><i class="far fa-building"></i>
                                     {{ __('Organizations') }}</a>
                                 <a class="nav-link {{ nav_set_active('calender.index') }}"

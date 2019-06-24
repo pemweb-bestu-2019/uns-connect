@@ -52,8 +52,10 @@
                     <div class="card-footer">
                         <a href="#" class="card-footer-item card-footer-item-bordered text-muted"><strong>{{ number_format($organization->memberships->count()) }}</strong>
                             Terdaftar</a> <a href="{{ route('organizations.show', $organization->id_organization) }}"
-                            class="card-footer-item card-footer-item-bordered text-muted">Lihat</a> <a href="#"
-                            class="card-footer-item card-footer-item-bordered text-muted">Daftar</a>
+                            class="card-footer-item card-footer-item-bordered text-muted">Lihat</a>
+                        @if($organization->registration_open)
+                            <a href="{{ route('organizations.registration', $organization->id_organization) }}" class="card-footer-item card-footer-item-bordered text-muted">Daftar</a>
+                        @endif
                     </div><!-- /.card-footer -->
                 </div><!-- /.card -->
             </div><!-- /.masonry-item -->

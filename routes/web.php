@@ -18,17 +18,23 @@ Route::get('/', function () {
 Route::prefix('events')->group(function() {
     Route::get('/', 'EventSearchController@index')->name('events.index');
     Route::get('{event}/overview', 'EventSearchController@showEvent')->name('events.show');
-    Route::get('{event}/registration', 'EventSearchController@registration')->name('events.registration');
+    Route::get('{event}/registration', 'EventSearchController@registration')->name('events.registration')->middleware('identity');
 });
 
 Route::prefix('organizations')->group(function() {
     Route::get('/', 'OrganizationController@index')->name('organizations.index');
+
     Route::get('{organization}/view', 'OrganizationController@showOrganization')->name('organizations.show');
+    Route::get('{organization}/members', 'OrganizationController@showMembersPage')->name('organizations.members');
+    Route::get('{organization}/registration', 'OrganizationController@showRegistrationPage')->name('organizations.registration')->middleware('identity');
+    Route::get('{organization}/events', 'OrganizationController@showEventsPage')->name('organizations.events');
 });
 
 Route::get('/calender', 'EventsCalenderController@index')->name('calender.index');
 
-Route::get('/me/profile', 'UserController@showProfile')->name('me.profile');
+Route::prefix('me')->group(function () {
+    Route::get('profile', 'UserController@showProfile')->name('me.profile');
+});
 
 /**
  * Organization manages route

@@ -18,4 +18,19 @@ class OrganizationController extends Controller
     {
         return view('organization.show', compact('organization'));
     }
+
+    public function showMembersPage(Organization $organization)
+    {
+        return view('organization.members', compact('organization'));
+    }
+
+    public function showRegistrationPage(Organization $organization)
+    {
+        return view('organization.registration', compact('organization'));
+    }
+
+    public function showEventsPage(Organization $organization)
+    {
+        return view('organization.events', compact('organization'));
+    }
 }
