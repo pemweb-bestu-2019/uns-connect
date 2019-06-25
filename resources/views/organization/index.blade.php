@@ -30,7 +30,7 @@
                     <div class="card-body">
                         <!-- team avatar -->
                         <div class="media align-items-center mb-3">
-                            <a href="{{ route('organizations.show') }}" class="user-avatar user-avatar-lg mr-3"><img
+                            <a href="{{ route('organizations.show', 1) }}" class="user-avatar user-avatar-lg mr-3"><img
                                     src="assets/images/avatars/team4.jpg" alt=""></a>
                             <div class="media-body">
                                 <h3 class="card-title">
