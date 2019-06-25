@@ -47,7 +47,10 @@ class UserController extends Controller
 
         if ($request->has('redirectTo')) {
             # Redirec to target
-            return redirect($request->input('redirectTo'));
+            if (strlen($request->input('redirectTo')) > 5) {
+                # Redirect
+                return redirect($request->input('redirectTo'));
+            }
         }
 
         return redirect()
