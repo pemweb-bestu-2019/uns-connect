@@ -67,6 +67,11 @@ Route::prefix('tickets')->group(function() {
     Route::put('owned/{event}/update', 'TicketController@update')->name('tickets.owned.update');
 });
 
+Route::prefix('admin')->group(function() {
+    Route::get('/', 'AdminController@index')->name('admin.index');
+    Route::get('division', 'AdminController@showDivision')->name('admin.division');
+});
+
 Auth::routes([
     'reset' => false,
     'verify' => false
