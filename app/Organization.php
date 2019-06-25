@@ -37,4 +37,9 @@ class Organization extends Model
     {
         return $this->belongsTo(User::class, 'id_user');
     }
+
+    public function memberships()
+    {
+        return $this->hasMany(Membership::class, 'id_organization');
+    }
 }

@@ -26,7 +26,7 @@
                                         <ul class="list-inline text-muted mb-0">
                                             <li class="list-inline-item mr-3" data-toggle="tooltip" title=""
                                                 data-placement="bottom" data-original-title="Members">
-                                                <i class="fas fa-users text-teal"></i> 8 </li>
+                                                <i class="fas fa-users text-teal"></i> {{ $organization->memberships->count() }} </li>
                                             <li class="list-inline-item mr-3" data-toggle="tooltip" title=""
                                                 data-placement="bottom" data-original-title="Events">
                                                 <i class="fa fa-bookmark text-yellow"></i>
