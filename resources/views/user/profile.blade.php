@@ -12,14 +12,12 @@
                 <!-- .card -->
                 <div class="card card-fluid">
                     <h6 class="card-header"> Update Data Diri </h6><!-- .card-body -->
-                    <div class="list-group list-group-flush list-group-divider">
-                        @component('vendor.component.empty')
-                        <h3 class="state-header"> Belum daftar dimanapun. </h3>
-                        <p class="state-description lead text-muted"> Mulai mendaftar organisasi dan nikmati hidupmu. </p>
-                        <div class="state-action">
-                            <a href="{{ route('organizations.index') }}" class="btn btn-primary">Daftar Organisasi</a>
-                        </div>
-                        @endcomponent
+                    <div class="card-body">
+                        <form action="{{ route('me.store') }}" method="post">
+                            @csrf
+
+                            @include('vendor.forms.member')
+                        </form>
                     </div>
                 </div><!-- /.card -->
                 <!-- .card -->
