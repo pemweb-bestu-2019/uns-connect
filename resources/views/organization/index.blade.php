@@ -25,7 +25,7 @@
                 </form>
             </div>
             @endif
-            <div class="masonry-item col-lg-12">
+            <div class="masonry-item col-lg-6">
                 <!-- .card -->
                 <div class="card card-fluid">
                     <!-- .card-body -->
@@ -46,11 +46,11 @@
                                     class="far fa-building"></i></a>
                         </div><!-- /.media -->
                         <hr>
-                        <p> {{ $organization->description }} </p><!-- /team avatar -->
+                        <p> {{ Str::limit($organization->description, 300) }} </p><!-- /team avatar -->
                     </div><!-- /.card-body -->
                     <!-- .card-footer -->
                     <div class="card-footer">
-                        <a href="#" class="card-footer-item card-footer-item-bordered text-muted"><strong>{{ number_format($organization->memberships->count()) }}</strong>
+                        <a href="{{ route('organizations.members', $organization->id_organization) }}" class="card-footer-item card-footer-item-bordered text-muted"><strong>{{ number_format($organization->memberships->count()) }}</strong>
                             Terdaftar</a> <a href="{{ route('organizations.show', $organization->id_organization) }}"
                             class="card-footer-item card-footer-item-bordered text-muted">Lihat</a>
                         @if($organization->registration_open)
@@ -59,33 +59,6 @@
                     </div><!-- /.card-footer -->
                 </div><!-- /.card -->
             </div><!-- /.masonry-item -->
-            @if ($loop->last)
-            <div class="masonry-item col-lg-12">
-                <ul class="pagination">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#">«</a>
-                    </li>
-                    <li class="page-item active">
-                        <a class="page-link" href="#">1</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">2</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">3</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">4</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">5</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">»</a>
-                    </li>
-                </ul>
-            </div>
-            @endif
             @empty
             <div class="col-lg-12">
                 @component('vendor.component.empty', ['type' => '7.svg'])
