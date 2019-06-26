@@ -6,13 +6,15 @@
     <!-- .page-title-bar -->
     <header class="page-title-bar">
         <!-- page title stuff goes here -->
-        <h1 class="page-title"> Organizations <small class="badge">23 Totals</small> </h1>
-        <p class="text-muted"> Session timeout and keep-alive control with a nice Bootstrap warning dialog. </p>
+        <h1 class="page-title"> Organizations <small class="badge">{{ $organizations->count() }} Totals</small> </h1>
+        <p class="text-muted"> Suatu kelompok orang dalam suatu wadah untuk tujuan bersama.. </p>
     </header><!-- /.page-title-bar -->
     <!-- .page-section -->
     <div class="page-section">
         <!-- .masonry-layout -->
         <div class="masonry-layout">
+            @forelse ($organizations as $organization)
+            @if ($loop->first)
             <div class="masonry-item col-lg-12">
                 <form class="top-bar-search" style="margin-bottom: 20px;">
                     <div class="input-group input-group-search">
@@ -22,7 +24,7 @@
                     </div>
                 </form>
             </div>
-            <!-- .masonry-item -->
+            @endif
             <div class="masonry-item col-lg-12">
                 <!-- .card -->
                 <div class="card card-fluid">
@@ -30,157 +32,34 @@
                     <div class="card-body">
                         <!-- team avatar -->
                         <div class="media align-items-center mb-3">
-                            <a href="{{ route('organizations.show', 1) }}" class="user-avatar user-avatar-lg mr-3"><img
-                                    src="assets/images/avatars/team4.jpg" alt=""></a>
+                            <div class="user-avatar user-avatar-lg mr-3" style="font-size: 2rem;">
+                                <div class="tile tile-circle tile-lg bg-blue"> {{ substr($organization->name, 0, 1) }}
+                                </div>
+                            </div>
                             <div class="media-body">
                                 <h3 class="card-title">
-                                    <a href="page-team.html">Seminar Nasional: Tech</a>
+                                    {{ $organization->name }}
                                 </h3>
-                                <h6 class="card-subtitle text-muted"> Himpunan Rohis Nasional </h6>
-                            </div><a href="page-conversations.html" class="btn btn-icon btn-light" data-toggle="tooltip"
-                                title="Lihat organisasi"><i class="far fa-building"></i></a>
+                                <h6 class="card-subtitle text-muted"> {{ $organization->name_short }} </h6>
+                            </div><a href="{{ route('organizations.show', $organization->id_organization) }}"
+                                class="btn btn-icon btn-light" data-toggle="tooltip" title="Lihat organisasi"><i
+                                    class="far fa-building"></i></a>
                         </div><!-- /.media -->
-                        <p> We make stunning and cool responsive web and app design which suitable for any project
-                            purpose for your business. </p><!-- /team avatar -->
                         <hr>
-                        <!-- team details -->
-                        <ul class="list-icons mb-3">
-                            <li>
-                                <span class="list-icon"><span class="fa fa-map-marker text-muted"></span></span> London
-                            </li>
-                            <li>
-                                <span class="list-icon"><span class="fa fa-flag text-muted"></span></span> 20 November
-                                2019 </li>
-                        </ul><!-- /team details -->
+                        <p> {{ $organization->description }} </p><!-- /team avatar -->
                     </div><!-- /.card-body -->
                     <!-- .card-footer -->
                     <div class="card-footer">
-                        <a href="#" class="card-footer-item card-footer-item-bordered text-muted"><strong>135</strong>
-                            Terdaftar</a> <a href="#"
-                            class="card-footer-item card-footer-item-bordered text-muted">Lihat</a> <a href="#"
-                            class="card-footer-item card-footer-item-bordered text-muted">Daftar</a>
+                        <a href="#" class="card-footer-item card-footer-item-bordered text-muted"><strong>{{ number_format($organization->memberships->count()) }}</strong>
+                            Terdaftar</a> <a href="{{ route('organizations.show', $organization->id_organization) }}"
+                            class="card-footer-item card-footer-item-bordered text-muted">Lihat</a>
+                        @if($organization->registration_open)
+                            <a href="{{ route('organizations.registration', $organization->id_organization) }}" class="card-footer-item card-footer-item-bordered text-muted">Daftar</a>
+                        @endif
                     </div><!-- /.card-footer -->
                 </div><!-- /.card -->
             </div><!-- /.masonry-item -->
-            <!-- .masonry-item -->
-            <div class="masonry-item col-lg-12">
-                <!-- .card -->
-                <div class="card card-fluid">
-                    <!-- .card-body -->
-                    <div class="card-body">
-                        <!-- team avatar -->
-                        <div class="media align-items-center mb-3">
-                            <a href="page-team.html" class="tile tile-circle tile-lg bg-teal mr-3">TD</a>
-                            <div class="media-body">
-                                <h3 class="card-title">
-                                    <a href="page-team.html">Hackathon: Traveloka Day</a>
-                                </h3>
-                                <h6 class="card-subtitle text-muted"> PT. Traveloka Indonesia </h6>
-                            </div><a href="page-conversations.html" class="btn btn-icon btn-light" data-toggle="tooltip"
-                                title="Lihat organisasi"><i class="far fa-building"></i></a>
-                        </div><!-- /.media -->
-                        <p> We make stunning and cool responsive web and app design which suitable for any project
-                            purpose for your business. </p><!-- /team avatar -->
-                        <hr>
-                        <!-- team details -->
-                        <ul class="list-icons mb-3">
-                            <li>
-                                <span class="list-icon"><span class="fa fa-map-marker text-muted"></span></span> Jakarta
-                            </li>
-                            <li>
-                                <span class="list-icon"><span class="fa fa-flag text-muted"></span></span> 21 November
-                                2019 </li>
-                        </ul><!-- /team details -->
-                    </div><!-- /.card-body -->
-                    <!-- .card-footer -->
-                    <div class="card-footer">
-                        <a href="#" class="card-footer-item card-footer-item-bordered text-muted"><strong>54.233</strong>
-                            Terdaftar</a> <a href="#"
-                            class="card-footer-item card-footer-item-bordered text-muted">Lihat</a> <a href="#"
-                            class="card-footer-item card-footer-item-bordered text-muted">Daftar</a>
-                    </div><!-- /.card-footer -->
-                </div><!-- /.card -->
-            </div><!-- /.masonry-item -->
-            <!-- .masonry-item -->
-            <div class="masonry-item col-lg-12">
-                <!-- .card -->
-                <div class="card card-fluid">
-                    <!-- .card-body -->
-                    <div class="card-body">
-                        <!-- team avatar -->
-                        <div class="media align-items-center mb-3">
-                            <a href="page-team.html" class="user-avatar user-avatar-lg mr-3"><img
-                                    src="assets/images/avatars/team1.jpg" alt=""></a>
-                            <div class="media-body">
-                                <h3 class="card-title">
-                                    <a href="page-team.html">Android Indonesia Kejar</a>
-                                </h3>
-                                <h6 class="card-subtitle text-muted"> Google Indonesia </h6>
-                            </div><a href="page-conversations.html" class="btn btn-icon btn-light" data-toggle="tooltip"
-                                title="Lihat organisasi"><i class="far fa-building"></i></a>
-                        </div><!-- /.media -->
-                        <p> We make stunning and cool responsive web and app design which suitable for any project
-                            purpose for your business. </p><!-- /team avatar -->
-                        <hr>
-                        <!-- team details -->
-                        <ul class="list-icons mb-3">
-                            <li>
-                                <span class="list-icon"><span class="fa fa-map-marker text-muted"></span></span> Surakarta
-                            </li>
-                            <li>
-                                <span class="list-icon"><span class="fa fa-flag text-muted"></span></span> 20 November
-                                2019 </li>
-                        </ul><!-- /team details -->
-                    </div><!-- /.card-body -->
-                    <!-- .card-footer -->
-                    <div class="card-footer">
-                        <a href="#" class="card-footer-item card-footer-item-bordered text-muted"><strong>5</strong>
-                            Terdaftar</a> <a href="#"
-                            class="card-footer-item card-footer-item-bordered text-muted">Lihat</a> <a href="#"
-                            class="card-footer-item card-footer-item-bordered text-muted">Daftar</a>
-                    </div><!-- /.card-footer -->
-                </div><!-- /.card -->
-            </div><!-- /.masonry-item -->
-            <!-- .masonry-item -->
-            <div class="masonry-item col-lg-12">
-                <!-- .card -->
-                <div class="card card-fluid">
-                    <!-- .card-body -->
-                    <div class="card-body">
-                        <!-- team avatar -->
-                        <div class="media align-items-center mb-3">
-                            <a href="page-team.html" class="user-avatar user-avatar-lg mr-3"><img
-                                    src="assets/images/avatars/bootstrap.svg" alt=""></a>
-                            <div class="media-body">
-                                <h3 class="card-title">
-                                    <a href="page-team.html">Flutter Developer</a>
-                                </h3>
-                                <h6 class="card-subtitle text-muted"> GoTech Surakarta </h6>
-                            </div><a href="page-conversations.html" class="btn btn-icon btn-light" data-toggle="tooltip"
-                                title="Lihat organisasi"><i class="far fa-building"></i></a>
-                        </div><!-- /.media -->
-                        <p> We make stunning and cool responsive web and app design which suitable for any project
-                            purpose for your business. </p><!-- /team avatar -->
-                        <hr>
-                        <!-- team details -->
-                        <ul class="list-icons mb-3">
-                            <li>
-                                <span class="list-icon"><span class="fa fa-map-marker text-muted"></span></span> Surakarta
-                            </li>
-                            <li>
-                                <span class="list-icon"><span class="fa fa-flag text-muted"></span></span> 30 November
-                                2019 </li>
-                        </ul><!-- /team details -->
-                    </div><!-- /.card-body -->
-                    <!-- .card-footer -->
-                    <div class="card-footer">
-                        <a href="#" class="card-footer-item card-footer-item-bordered text-muted"><strong>145</strong>
-                            Terdaftar</a> <a href="#"
-                            class="card-footer-item card-footer-item-bordered text-muted">Lihat</a> <a href="#"
-                            class="card-footer-item card-footer-item-bordered text-muted">Daftar</a>
-                    </div><!-- /.card-footer -->
-                </div><!-- /.card -->
-            </div><!-- /.masonry-item -->
+            @if ($loop->last)
             <div class="masonry-item col-lg-12">
                 <ul class="pagination">
                     <li class="page-item disabled">
@@ -206,6 +85,16 @@
                     </li>
                 </ul>
             </div>
+            @endif
+            @empty
+            <div class="col-lg-12">
+                @component('vendor.component.empty', ['type' => '7.svg'])
+                <h3 class="state-header"> Organisasi belum tersedia. </h3>
+                <p class="state-description lead text-muted"> Sepertinya belum ada organisasi yang dibuat.
+                </p>
+                @endcomponent
+            </div>
+            @endforelse
         </div><!-- /.masonry-layout -->
     </div><!-- /.page-section -->
 </div><!-- /.page-inner -->

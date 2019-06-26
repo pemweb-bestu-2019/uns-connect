@@ -44,17 +44,18 @@
     </div>
     <div class="form-group">
         <label for="address">Address</label>
-        <div class="input-group">
+        <div class="input-group @error('address') is-invalid @enderror">
             <label class="input-group-prepend" for="pi1"><span class="input-group-text"><span
                         class="far fa-building"></span></span></label>
-            <input type="text" class="form-control @error('address') is-invalid @enderror" name="address" id="address"
-                placeholder="" value="{{ old('address', $organization->address) }}" required>
-            @error('address')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
+            <input type="text" class="form-control" name="address" id="address" placeholder=""
+                value="{{ old('address', $organization->address) }}" required>
+
         </div>
+        @error('address')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
     </div>
     <hr>
     <p>Informasi tambahan. Kamu dapat mengosongkannya dan menambahkannya dikemudian waktu.
@@ -97,8 +98,9 @@
     <div class="form-group">
         <label>Settings</label>
         <div class="custom-control custom-checkbox mb-1">
-            <input type="checkbox" class="custom-control-input" id="registration_open" name="registration_open" @if($organization->registration_open) checked="checked" @endif> <label
-                class="custom-control-label" for="registration_open">Open organization
+            <input type="checkbox" class="custom-control-input" id="registration_open" name="registration_open"
+                @if($organization->registration_open) checked="checked" @endif> <label class="custom-control-label"
+                for="registration_open">Open organization
                 registration</label>
             <div class="text-muted"> Membuka halaman registrasi untuk organisasi anda. Anda
                 dapat mengubahnya dikemudian hari di laman pengaturan. </div>
@@ -107,8 +109,10 @@
     <hr>
     <div class="form-actions">
         @if($delete)
-            <button type="submit" name="delete" value="1" class="btn btn-danger ml-auto"><i class="far fa-trash-alt"></i> Delete Organization</button>
+        <button type="submit" name="delete" value="1" class="btn btn-danger ml-auto"><i class="far fa-trash-alt"></i>
+            Delete Organization</button>
         @endif
-        <button type="submit" class="btn btn-primary">@if($create) Create Organization @else Update Organization @endif</button>
+        <button type="submit" class="btn btn-primary">@if($create) Create Organization @else Update Organization
+            @endif</button>
     </div>
 </fieldset>

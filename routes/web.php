@@ -18,17 +18,26 @@ Route::get('/', function () {
 Route::prefix('events')->group(function() {
     Route::get('/', 'EventSearchController@index')->name('events.index');
     Route::get('{event}/overview', 'EventSearchController@showEvent')->name('events.show');
-    Route::get('{event}/registration', 'EventSearchController@registration')->name('events.registration');
+    Route::get('{event}/registration', 'EventSearchController@registration')->name('events.registration')->middleware(['identity', 'auth']);
 });
 
 Route::prefix('organizations')->group(function() {
     Route::get('/', 'OrganizationController@index')->name('organizations.index');
+
     Route::get('{organization}/view', 'OrganizationController@showOrganization')->name('organizations.show');
+    Route::get('{organization}/members', 'OrganizationController@showMembersPage')->name('organizations.members');
+    Route::get('{organization}/registration', 'OrganizationController@showRegistrationPage')->name('organizations.registration')->middleware(['identity', 'auth']);
+    Route::get('{organization}/events', 'OrganizationController@showEventsPage')->name('organizations.events');
 });
 
 Route::get('/calender', 'EventsCalenderController@index')->name('calender.index');
 
-Route::get('/me/profile', 'UserController@showProfile')->name('me.profile');
+Route::prefix('me')->group(function () {
+    Route::get('/', 'UserController@index')->name('me.index');
+
+    Route::get('profile', 'UserController@showProfile')->name('me.profile');
+    Route::post('profile', 'UserController@store')->name('me.store');
+});
 
 /**
  * Organization manages route
@@ -56,6 +65,17 @@ Route::prefix('tickets')->group(function() {
 
     Route::get('owned/{event}/edit', 'TicketController@showEventEditPage')->name('tickets.owned.edit');
     Route::put('owned/{event}/update', 'TicketController@update')->name('tickets.owned.update');
+});
+
+Route::prefix('admin')->group(function() {
+    Route::get('/', 'AdminController@index')->name('admin.index');
+
+    Route::get('division', 'AdminController@showDivision')->name('admin.division');
+    Route::get('division/create', 'AdminController@createDivision')->name('admin.division.create');
+    Route::get('division/{division}/edit', 'AdminController@showEditDivision')->name('admin.division.edit');
+    Route::get('division/{division}/delete', 'AdminController@deleteDivision')->name('admin.division.delete');
+    Route::put('division/{division}/edit', 'AdminController@updateDivision')->name('admin.division.update');
+    Route::post('division/create', 'AdminController@storeDivision')->name('admin.division.store');
 });
 
 Auth::routes([

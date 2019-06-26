@@ -187,16 +187,16 @@
                                 <a class="nav-link {{ nav_set_active(['events.index', 'events.show', 'events.registration']) }}"
                                     href="{{ route('events.index') }}"><i class="far fa-calendar"></i>
                                     {{ __('Event Search') }} </a>
-                                <a class="nav-link {{ nav_set_active(['organizations.index', 'organizations.show']) }}"
+                                <a class="nav-link {{ nav_set_active(['organizations.index', 'organizations.show', 'organizations.members', 'organizations.events', 'organizations.registration']) }}"
                                     href="{{ route('organizations.index') }}"><i class="far fa-building"></i>
-                                    {{ __('Organizations') }} <span class="badge">16</span></a>
+                                    {{ __('Organizations') }}</a>
                                 <a class="nav-link {{ nav_set_active('calender.index') }}"
                                     href="{{ route('calender.index') }}"><i class="far fa-calendar-alt"></i>
                                     {{ __('Events Calender') }} </a>
                                 @guest
                                 <a class="nav-link {{ nav_set_active(['login', 'register', 'password.request']) }}"
                                     href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i>
-                                    {{ __('Login / Register') }} </a>
+                                    {{ __('Authentikasi') }} </a>
                                 @else
                                 <a class="nav-link {{ nav_set_active(['orgs.index', 'orgs.create', 'orgs.owned', 'orgs.owned.edit', 'orgs.owned.report']) }}"
                                     href="{{ route('orgs.index') }}"><i class="fas fa-user-astronaut"></i>
@@ -204,6 +204,12 @@
                                 <a class="nav-link {{ nav_set_active(['tickets.index', 'tickets.owned', 'tickets.owned.create', 'tickets.owned.select', 'tickets.owned.edit']) }}"
                                     href="{{ route('tickets.index') }}"><i class="fas fa-ticket-alt"></i>
                                     {{ __('Manage Events') }} </a>
+                                <a class="nav-link {{ nav_set_active(['me.index', 'me.profile']) }}"
+                                    href="{{ route('me.index') }}"><i class="fas fa-cloud-meatball"></i>
+                                    {{ __('Me') }} </a>
+                                <a class="nav-link {{ nav_set_active(['admin.index', 'admin.division', 'admin.division.create', 'admin.division.edit']) }}"
+                                    href="{{ route('admin.index') }}"><i class="fas fa-user-shield"></i>
+                                    {{ __('Administrator') }} </a>
                                 @endguest
                             </div><!-- /.nav -->
                         </div><!-- /.nav-scroller -->

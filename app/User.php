@@ -60,4 +60,9 @@ class User extends Authenticatable
     {
         return $this->username === 'moerbayaksa';
     }
+
+    public function membership()
+    {
+        return $this->hasOne(Membership::class, 'id_user');
+    }
 }

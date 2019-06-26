@@ -6,20 +6,20 @@
         <!-- grid row -->
         <div class="row">
             <!-- grid column -->
-            @include('vendor.include.navigation_user')
-            <!-- grid column -->
-            <div class="col-lg-8">
+            <div class="col-lg-12">
                 <!-- .card -->
-                <div class="card card-fluid">
-                    <h6 class="card-header"> Update Data Diri </h6><!-- .card-body -->
+                <div class="card">
+                    <!-- .card-header -->
+                    @include('vendor.include.navigation_admin')
+                    <!-- .card-body -->
                     <div class="card-body">
-                        <form action="{{ route('me.store') }}" method="post">
+                        <form action="{{ route('admin.division.store') }}" method="post">
                             @csrf
 
-                            @include('vendor.forms.member')
+                            @include('vendor.forms.division', ['create' => true])
                         </form>
-                    </div>
-                </div><!-- /.card -->
+                    </div><!-- /.card-body -->
+                </div>
                 <!-- .card -->
             </div><!-- /grid column -->
         </div><!-- /grid row -->
