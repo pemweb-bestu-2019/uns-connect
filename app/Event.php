@@ -51,4 +51,9 @@ class Event extends Model
     {
         return 'slug';
     }
+
+    public function invoices()
+    {
+        return $this->hasMany(Invoice::class, 'id_event');
+    }
 }

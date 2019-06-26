@@ -9,9 +9,16 @@ use App\Division;
 
 class OrganizationController extends Controller
 {
-    public function index()
+    public function index(Request $request, Organization $organization)
     {
-        $organizations = Organization::all();
+        $model = $organization->newQuery();
+
+        # Start the search method
+        if ($request->has('q')) {
+            $model->where('name', 'like', '%'.$request->input('q').'%');
+        }
+
+        $organizations = $model->get();
 
         return view('organization.index', compact('organizations'));
     }
