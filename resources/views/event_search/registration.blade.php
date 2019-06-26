@@ -27,9 +27,9 @@
                                 <hr>
                                 <form action="{{ route('events.registration.user', $event->slug) }}" method="post">
                                     @csrf
-                                    
+
                                     @include('vendor.include.message_flash')
-                                    
+
                                     <button type="submit" name="submit" value="1" class="btn btn-primary">Bayar</button>
                                 </form>
                             </div>
