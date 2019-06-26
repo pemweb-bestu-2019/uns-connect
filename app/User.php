@@ -61,14 +61,14 @@ class User extends Authenticatable
         return $this->username === 'moerbayaksa';
     }
 
-    public function membership()
+    public function memberships()
     {
-        return $this->hasOne(Membership::class, 'id_user');
+        return $this->hasMany(Membership::class, 'id_user');
     }
 
-    public function membership_eloquent()
+    public function memberships_eloquent()
     {
-        return $this->hasOne(Membership::class, 'id_user')->withoutGlobalScopes();
+        return $this->hasMany(Membership::class, 'id_user')->withoutGlobalScopes();
     }
 
     public function membership_invoices()
