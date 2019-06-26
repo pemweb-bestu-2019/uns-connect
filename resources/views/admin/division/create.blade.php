@@ -13,11 +13,11 @@
                     @include('vendor.include.navigation_admin')
                     <!-- .card-body -->
                     <div class="card-body">
-                        @component('vendor.component.empty')
-                        <h3 class="state-header"> Maintenance </h3>
-                        <p class="state-description lead text-muted"> Cek lagi di lain waktu ya.
-                        </p>
-                        @endcomponent
+                        <form action="{{ route('admin.division.store') }}" method="post">
+                            @csrf
+
+                            @include('vendor.forms.division', ['create' => true])
+                        </form>
                     </div><!-- /.card-body -->
                 </div>
                 <!-- .card -->

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Organization;
+use App\Division;
 
 class OrganizationController extends Controller
 {
@@ -26,6 +27,9 @@ class OrganizationController extends Controller
 
     public function showRegistrationPage(Organization $organization)
     {
+        # Mengambil semua divisi yang ada
+        $divisions = Division::all();
+
         # Mengamibl membership di organisasi ini
         $membership = auth()->user()->membership()
             ->where($organization->getKeyName(), $organization->getKey())
@@ -40,7 +44,8 @@ class OrganizationController extends Controller
 
         # Return the model and all data to view
         return view('organization.registration', compact('organization', 'is_registration'))
-            ->with('membership', $membership);
+            ->with('membership', $membership)
+            ->with('divisions', $divisions);
     }
 
     public function showEventsPage(Organization $organization)
