@@ -122,7 +122,9 @@ class OrganizationController extends Controller
 
     public function deleteRegistration(Organization $organization)
     {
-        auth()->user()->memberships()->delete();
+        auth()->user()->memberships()
+                ->where($organization->getKeyName(), $organization->getKey())
+                ->delete();
 
         return redirect()
             ->back()
