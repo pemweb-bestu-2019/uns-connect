@@ -69,7 +69,13 @@ Route::prefix('tickets')->group(function() {
 
 Route::prefix('admin')->group(function() {
     Route::get('/', 'AdminController@index')->name('admin.index');
+
     Route::get('division', 'AdminController@showDivision')->name('admin.division');
+    Route::get('division/create', 'AdminController@createDivision')->name('admin.division.create');
+    Route::get('division/{division}/edit', 'AdminController@showEditDivision')->name('admin.division.edit');
+    Route::get('division/{division}/delete', 'AdminController@deleteDivision')->name('admin.division.delete');
+    Route::put('division/{division}/edit', 'AdminController@updateDivision')->name('admin.division.update');
+    Route::post('division/create', 'AdminController@storeDivision')->name('admin.division.store');
 });
 
 Auth::routes([

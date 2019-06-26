@@ -47,7 +47,7 @@
                 </div><!-- /grid column -->
                 @empty
                 <div class="col-lg-12">
-                    @component('vendor.component.empty', ['type' => '5.png'])
+                    @component('vendor.component.empty', ['type' => '7.svg'])
                     <h3 class="state-header"> Tidak ada event. </h3>
                     <p class="state-description lead text-muted"> Kami belum memiliki event, cek lagi kapan-kapan ya.
                     </p>

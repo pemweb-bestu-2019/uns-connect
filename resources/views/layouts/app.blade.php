@@ -207,7 +207,7 @@
                                 <a class="nav-link {{ nav_set_active(['me.index', 'me.profile']) }}"
                                     href="{{ route('me.index') }}"><i class="fas fa-cloud-meatball"></i>
                                     {{ __('Me') }} </a>
-                                <a class="nav-link {{ nav_set_active(['admin.index', 'admin.division']) }}"
+                                <a class="nav-link {{ nav_set_active(['admin.index', 'admin.division', 'admin.division.create', 'admin.division.edit']) }}"
                                     href="{{ route('admin.index') }}"><i class="fas fa-user-shield"></i>
                                     {{ __('Administrator') }} </a>
                                 @endguest
