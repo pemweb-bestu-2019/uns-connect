@@ -65,4 +65,14 @@ class User extends Authenticatable
     {
         return $this->hasOne(Membership::class, 'id_user');
     }
+
+    public function membership_eloquent()
+    {
+        return $this->hasOne(Membership::class, 'id_user')->withoutGlobalScopes();
+    }
+
+    public function membership_invoices()
+    {
+        return $this->hasMany(MembershipInvoice::class, 'id_user');
+    }
 }

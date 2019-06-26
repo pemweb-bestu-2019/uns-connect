@@ -8,6 +8,25 @@ use Carbon\Carbon;
 
 class Membership extends Model
 {
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'id_division', 'id_organization', 'date_expired'
+    ];
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'date_expired', 'created_at', 'updated_at'
+    ];
+
     /**
      * The "booting" method of the model.
      *
@@ -24,5 +43,10 @@ class Membership extends Model
                 Carbon::now()->format('Y-m-d')
             );
         });
+    }
+
+    public function division()
+    {
+        return $this->belongsTo(Division::class, 'id_division');
     }
 }
