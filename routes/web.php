@@ -28,6 +28,7 @@ Route::prefix('organizations')->group(function() {
     Route::get('{organization}/members', 'OrganizationController@showMembersPage')->name('organizations.members');
     Route::get('{organization}/registration', 'OrganizationController@showRegistrationPage')->name('organizations.registration')->middleware(['identity', 'auth']);
     Route::post('{organization}/registration', 'OrganizationController@storRegistration')->name('organizations.registration.store')->middleware(['identity', 'auth']);
+    Route::delete('{organization}/registration', 'OrganizationController@deleteRegistration')->name('organizations.registration.delete')->middleware(['identity', 'auth']);
     Route::get('{organization}/events', 'OrganizationController@showEventsPage')->name('organizations.events');
 });
 

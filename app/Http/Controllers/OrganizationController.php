@@ -115,4 +115,13 @@ class OrganizationController extends Controller
 
         return redirect()->back();
     }
+
+    public function deleteRegistration(Organization $organization)
+    {
+        auth()->user()->membership()->delete();
+
+        return redirect()
+            ->back()
+            ->with('error', 'Membership kamu berhasil dicabut.');
+    }
 }
