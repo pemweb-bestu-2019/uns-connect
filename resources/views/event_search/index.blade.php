@@ -33,7 +33,7 @@
                     <div class="list-group list-group-media mb-3">
                         <a href="{{ route('events.show', $event->slug) }}" class="list-group-item list-group-item-action">
                             <div class="list-group-item-figure rounded-left">
-                                <img src="assets/images/dummy/img-1.jpg" alt="placeholder image">
+                                <img src="{{ asset('assets/images/dummy/img-1.jpg') }}" alt="placeholder image">
                             </div>
                             <div class="list-group-item-body">
                                 <h4 class="list-group-item-title"> {{ $event->name }} </h4>
