@@ -49,4 +49,14 @@ class Membership extends Model
     {
         return $this->belongsTo(Division::class, 'id_division');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user');
+    }
+
+    public function organization()
+    {
+        return $this->belongsTo(Organization::class, 'id_organization');
+    }
 }

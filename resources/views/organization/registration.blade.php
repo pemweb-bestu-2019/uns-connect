@@ -7,10 +7,11 @@
         <!-- .tab-content -->
         <div class="tab-content pt-4">
             <!-- .tab-pane -->
+
+            @if(auth()->user()->isNot($organization->owner))
             <div class="card">
                 <!-- .card-body -->
                 <div class="card-body">
-                    @if(auth()->user()->isNot($organization->owner))
                     @if($is_registration)
                     <div class="d-flex justify-content-between align-items-center">
                         <h2 id="client-billing-contact-tab" class="card-title"> Pendaftaran</h2>
@@ -95,7 +96,8 @@
                             </dd>
                         </dl>
                         <hr>
-                        <form action="{{ route('organizations.registration.delete', $organization->id_organization) }}" method="POST">
+                        <form action="{{ route('organizations.registration.delete', $organization->id_organization) }}"
+                            method="POST">
                             @method('DELETE')
                             @csrf
                             <button class="btn btn-danger" type="submit">Cabut Membership</button>
@@ -109,17 +111,17 @@
                         pemilik organisasi ini untuk informasi lebih lanjut.</p>
                     @endif
                     @endif
-                    @else
-                    @component('vendor.component.empty', ['type' => '7.svg'])
-                    <h3 class="state-header"> Organisasi milik kamu sendiri. </h3>
-                    <p class="state-description lead text-muted"> Kamu tidak bisa daftar di organisasi yang kamu urus
-                        sendiri
-                    </p>
-                    @endcomponent
-                    @endif
                 </div>
                 <!-- /.card-body -->
             </div>
+            @else
+            @component('vendor.component.empty', ['type' => '7.svg'])
+            <h3 class="state-header"> Organisasi milik kamu sendiri. </h3>
+            <p class="state-description lead text-muted"> Kamu tidak bisa daftar di organisasi yang kamu urus
+                sendiri
+            </p>
+            @endcomponent
+            @endif
             <!-- /.tab-pane -->
         </div>
         <!-- /.tab-content -->

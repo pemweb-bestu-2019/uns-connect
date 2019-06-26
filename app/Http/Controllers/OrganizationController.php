@@ -32,7 +32,7 @@ class OrganizationController extends Controller
         $divisions = Division::all();
 
         # Mengamibl membership di organisasi ini
-        $membership = auth()->user()->membership()
+        $membership = auth()->user()->memberships()
             ->where($organization->getKeyName(), $organization->getKey())
             ->first();
 
@@ -64,7 +64,7 @@ class OrganizationController extends Controller
         $division = Division::find($attributes['division']);
 
         # Mengamibl membership di organisasi ini
-        $membership = auth()->user()->membership()
+        $membership = auth()->user()->memberships()
             ->where($organization->getKeyName(), $organization->getKey())
             ->first();
 
@@ -79,7 +79,9 @@ class OrganizationController extends Controller
             # Remove division
             unset($attributes['division']);
             # Check if membership rows is any for following user
-            $existing_membership = auth()->user()->membership_eloquent;
+            $existing_membership = auth()->user()->memberships_eloquent()
+                ->where($organization->getKeyName(), $organization->getKey())
+                ->first();
 
             $membership_attribures = array_merge($attributes, [
                 # Organization ke pair
@@ -93,10 +95,12 @@ class OrganizationController extends Controller
             # If membership rows is exists
             if ($existing_membership) {
                 # Update the membership
-                auth()->user()->membership_eloquent()->update($membership_attribures);
+                auth()->user()->memberships_eloquent()
+                    ->where($organization->getKeyName(), $organization->getKey())
+                    ->update($membership_attribures);
             } else {
                 # Not exists
-                auth()->user()->membership()->create($membership_attribures);
+                auth()->user()->memberships()->create($membership_attribures);
             }
 
             # Create invoice
@@ -118,7 +122,9 @@ class OrganizationController extends Controller
 
     public function deleteRegistration(Organization $organization)
     {
-        auth()->user()->membership()->delete();
+        auth()->user()->memberships()
+                ->where($organization->getKeyName(), $organization->getKey())
+                ->delete();
 
         return redirect()
             ->back()

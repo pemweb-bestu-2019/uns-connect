@@ -20,7 +20,9 @@ class OrgsController extends Controller
 
     public function index()
     {
-        return view('orgs.index');
+        $memberships = auth()->user()->memberships;
+
+        return view('orgs.index', compact('memberships'));
     }
 
     public function showCreate()
