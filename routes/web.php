@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::prefix('events')->group(function() {
     Route::get('/', 'EventSearchController@index')->name('events.index');
     Route::get('{event}/overview', 'EventSearchController@showEvent')->name('events.show');
-    Route::get('{event}/registration', 'EventSearchController@registration')->name('events.registration')->middleware(['identity', 'auth']);
+    Route::get('{event}/registration', 'EventSearchController@registration')->name('events.registration')->middleware(['identity']);
 });
 
 Route::prefix('organizations')->group(function() {
