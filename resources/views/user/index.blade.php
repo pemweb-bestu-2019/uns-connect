@@ -14,11 +14,8 @@
                     <h6 class="card-header"> Your Information </h6><!-- .card-body -->
                     <div class="list-group list-group-flush list-group-divider">
                         @component('vendor.component.empty')
-                        <h3 class="state-header"> Belum daftar dimanapun. </h3>
-                        <p class="state-description lead text-muted"> Mulai mendaftar organisasi dan nikmati hidupmu. </p>
-                        <div class="state-action">
-                            <a href="{{ route('organizations.index') }}" class="btn btn-primary">Daftar Organisasi</a>
-                        </div>
+                        <h3 class="state-header"> Maintenance. </h3>
+                        <p class="state-description lead text-muted"> Balik lagi kapan-kapan aja ya. </p>
                         @endcomponent
                     </div>
                 </div><!-- /.card -->

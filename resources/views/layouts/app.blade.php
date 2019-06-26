@@ -104,46 +104,6 @@
                 <div class="top-bar-list">
                     <!-- .top-bar-item -->
                     <div class="top-bar-item top-bar-item-right px-0">
-                        <!-- .nav -->
-                        @if (Auth::user()->isAdmin())
-                        <ul class="header-nav nav">
-                            <!-- .nav-item -->
-                            <li class="nav-item dropdown header-nav-dropdown">
-                                <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false"><span class="fas fa-user-shield"></span></a>
-                                <div class="dropdown-arrow"></div><!-- .dropdown-menu -->
-                                <div class="dropdown-menu dropdown-menu-rich dropdown-menu-right">
-                                    <!-- .dropdown-sheets -->
-                                    <div class="dropdown-sheets">
-                                        <!-- .dropdown-sheet-item -->
-                                        <div class="dropdown-sheet-item">
-                                            <a href="#" class="tile-wrapper"><span class="tile tile-lg bg-teal"><i
-                                                        class="oi oi-fork"></i></span> <span
-                                                    class="tile-peek">Projects</span></a>
-                                        </div><!-- /.dropdown-sheet-item -->
-                                        <!-- .dropdown-sheet-item -->
-                                        <div class="dropdown-sheet-item">
-                                            <a href="#" class="tile-wrapper"><span class="tile tile-lg bg-pink"><i
-                                                        class="fa fa-tasks"></i></span> <span
-                                                    class="tile-peek">Tasks</span></a>
-                                        </div><!-- /.dropdown-sheet-item -->
-                                        <!-- .dropdown-sheet-item -->
-                                        <div class="dropdown-sheet-item">
-                                            <a href="#" class="tile-wrapper"><span class="tile tile-lg bg-yellow"><i
-                                                        class="oi oi-fire"></i></span> <span
-                                                    class="tile-peek">Feeds</span></a>
-                                        </div><!-- /.dropdown-sheet-item -->
-                                        <!-- .dropdown-sheet-item -->
-                                        <div class="dropdown-sheet-item">
-                                            <a href="#" class="tile-wrapper"><span class="tile tile-lg bg-cyan"><i
-                                                        class="oi oi-document"></i></span> <span
-                                                    class="tile-peek">Files</span></a>
-                                        </div><!-- /.dropdown-sheet-item -->
-                                    </div><!-- .dropdown-sheets -->
-                                </div><!-- .dropdown-menu -->
-                            </li><!-- /.nav-item -->
-                        </ul><!-- /.nav -->
-                        @endif
                         <!-- .btn-account -->
                         <div class="dropdown d-none d-sm-flex">
                             <button class="btn-account" type="button" data-toggle="dropdown" aria-haspopup="true"
