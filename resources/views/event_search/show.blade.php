@@ -2,7 +2,7 @@
 
 @section('page-inner')
 @include('vendor.include.organization_header', ['organization' => $event->organization, 'event' => $event])
-<div class="page-inner">
+<div class="page-inner container">
     <!-- .page-title-bar -->
     @include('vendor.include.event.header')
     <!-- .page-section -->
@@ -10,7 +10,7 @@
         <!-- .section-block -->
         <div class="section-block">
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-4">
                     <div class="list-group list-group-divider mb-3">
                             <div class="list-group-header"> Quota </div>
                         <a href="#" class="list-group-item list-group-item-action">
@@ -42,7 +42,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-8">
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title"> Description </h4>

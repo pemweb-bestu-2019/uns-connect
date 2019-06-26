@@ -171,6 +171,6 @@
     </div>
     <hr>
     <div class="form-actions">
-        <button type="submit" class="btn btn-primary">Update Information</button>
+        <button type="submit" class="btn btn-primary">@if(!empty($register)) Selanjutnya @else Update Information @endif</button>
     </div>
 </fieldset>

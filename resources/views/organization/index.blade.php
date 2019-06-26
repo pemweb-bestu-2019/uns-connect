@@ -1,4 +1,4 @@
-@extends('layouts.app')
+binary @extends('layouts.app')
 
 @section('page-inner')
 <div class="page-inner container">
@@ -13,18 +13,19 @@
     <div class="page-section">
         <!-- .masonry-layout -->
         <div class="masonry-layout">
-            @forelse ($organizations as $organization)
-            @if ($loop->first)
             <div class="masonry-item col-lg-12">
-                <form class="top-bar-search" style="margin-bottom: 20px;">
+                <form class="top-bar-search" style="margin-bottom: 20px;" method="GET">
                     <div class="input-group input-group-search">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><span class="oi oi-magnifying-glass"></span></span>
-                        </div><input type="text" class="form-control" aria-label="Search" placeholder="Search">
+                        </div><input type="text" class="form-control" name="q" value="{{ app('request')->input('q') ?? '' }}" aria-label="Search" placeholder="Search">
                     </div>
                 </form>
+                @if($q = app('request')->input('q'))
+                    <p>Menampilkan hasil pencarian yang sesuai dengan <strong>{{ $q }}</strong>.</p>
+                @endif
             </div>
-            @endif
+            @forelse ($organizations as $organization)
             <div class="masonry-item col-lg-6">
                 <!-- .card -->
                 <div class="card card-fluid">
@@ -50,11 +51,9 @@
                     </div><!-- /.card-body -->
                     <!-- .card-footer -->
                     <div class="card-footer">
-                        <a href="{{ route('organizations.members', $organization->id_organization) }}" class="card-footer-item card-footer-item-bordered text-muted"><strong>{{ number_format($organization->memberships->count()) }}</strong>
-                            Terdaftar</a> <a href="{{ route('organizations.show', $organization->id_organization) }}"
                             class="card-footer-item card-footer-item-bordered text-muted">Lihat</a>
                         @if($organization->registration_open)
-                            <a href="{{ route('organizations.registration', $organization->id_organization) }}" class="card-footer-item card-footer-item-bordered text-muted">Daftar</a>
+                            class="card-footer-item card-footer-item-bordered text-muted">Daftar</a>
                         @endif
                     </div><!-- /.card-footer -->
                 </div><!-- /.card -->
