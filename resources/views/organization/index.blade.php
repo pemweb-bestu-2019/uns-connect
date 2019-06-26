@@ -18,11 +18,12 @@ binary @extends('layouts.app')
                     <div class="input-group input-group-search">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><span class="oi oi-magnifying-glass"></span></span>
-                        </div><input type="text" class="form-control" name="q" value="{{ app('request')->input('q') ?? '' }}" aria-label="Search" placeholder="Search">
+                        </div><input type="text" class="form-control" name="q"
+                            value="{{ app('request')->input('q') ?? '' }}" aria-label="Search" placeholder="Search">
                     </div>
                 </form>
                 @if($q = app('request')->input('q'))
-                    <p>Menampilkan hasil pencarian yang sesuai dengan <strong>{{ $q }}</strong>.</p>
+                <p>Menampilkan hasil pencarian yang sesuai dengan <strong>{{ $q }}</strong>.</p>
                 @endif
             </div>
             @forelse ($organizations as $organization)
@@ -51,8 +52,12 @@ binary @extends('layouts.app')
                     </div><!-- /.card-body -->
                     <!-- .card-footer -->
                     <div class="card-footer">
+                        <a href="{{ route('organizations.members', $organization->id_organization) }}"
+                            class="card-footer-item card-footer-item-bordered text-muted"><strong>{{ number_format($organization->memberships->count()) }}</strong>
+                            Terdaftar</a> <a href="{{ route('organizations.show', $organization->id_organization) }}"
                             class="card-footer-item card-footer-item-bordered text-muted">Lihat</a>
                         @if($organization->registration_open)
+                        <a href="{{ route('organizations.registration', $organization->id_organization) }}"
                             class="card-footer-item card-footer-item-bordered text-muted">Daftar</a>
                         @endif
                     </div><!-- /.card-footer -->
