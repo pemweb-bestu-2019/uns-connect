@@ -20,6 +20,7 @@ Route::prefix('events')->group(function() {
     Route::get('{event}/overview', 'EventSearchController@showEvent')->name('events.show');
     Route::get('{event}/registration', 'EventSearchController@registration')->name('events.registration')->middleware(['identity']);
 
+    Route::post('{event}/registration', 'EventSearchController@registrationPost')->name('events.registration.user');
     Route::post('{event}/guest_registration', 'EventSearchController@guestRegistrationPost')->name('events.registration.guest');
 });
 

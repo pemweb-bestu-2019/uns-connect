@@ -7,6 +7,7 @@ use App\Http\Requests\StoreMember;
 use App\Event;
 use App\Member;
 use App\InvoiceGuest;
+use App\InvoiceUser;
 use App\Invoice;
 
 class EventSearchController extends Controller
@@ -35,6 +36,21 @@ class EventSearchController extends Controller
         $attributes = $member->validated();
 
         $invoice = InvoiceGuest::create($attributes)->invoice()->save(new Invoice([
+            'id_event' => $event->getKey()
+        ]));
+
+        return redirect()
+            ->back()
+            ->with('success', 'Anda berhasil membeli tiket dengan id invoice: #' . $invoice->id);
+    }
+
+    public function registrationPost(Request $request, Event $event)
+    {
+        $attributes = $request->validate([
+            'submit' => 'required'
+        ]);
+
+        $invoice = InvoiceUser::create(['id_user' => auth()->user()->getKey()])->invoice()->save(new Invoice([
             'id_event' => $event->getKey()
         ]));
 

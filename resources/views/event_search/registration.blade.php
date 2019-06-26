@@ -15,7 +15,24 @@
                     <div class="card">
                         @auth
                         {{-- User register --}}
-                        <p>AUTH</p>
+                        <div class="card-body">
+                                <h4 class="card-title"> Registration </h4>
+                                <p>Silahkan tekan tombol <strong>Bayar</strong> untuk mendaftar event ini.</p>
+                                <hr>
+                                <div class="section-block text-center text-sm-left">
+                                    <h3 class="section-title"> Biaya pendaftaran </h3><!-- .visual-picker -->
+                                    <h2>{{ 'Rp' . number_format(100000, 0) }}</h2>
+                                    <p>Biaya tersebut dibebankan kepada kamu dan akan diberikan kepada pembuat event.</p>
+                                </div>
+                                <hr>
+                                <form action="{{ route('events.registration.user', $event->slug) }}" method="post">
+                                    @csrf
+                                    
+                                    @include('vendor.include.message_flash')
+                                    
+                                    <button type="submit" name="submit" value="1" class="btn btn-primary">Bayar</button>
+                                </form>
+                            </div>
                         @else
                         {{-- Guest register --}}
                         <div class="card-body">
