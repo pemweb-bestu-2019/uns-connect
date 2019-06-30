@@ -75,4 +75,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(MembershipInvoice::class, 'id_user');
     }
+
+    public function invoices()
+    {
+        return $this->hasMany(InvoiceUser::class, 'id_user');
+    }
 }

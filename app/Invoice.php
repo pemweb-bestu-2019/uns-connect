@@ -19,4 +19,9 @@ class Invoice extends Model
     {
         return $this->morphTo();
     }
+
+    public function event()
+    {
+        return $this->belongsTo(Event::class, 'id_event');
+    }
 }

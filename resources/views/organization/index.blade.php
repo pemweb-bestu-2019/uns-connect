@@ -1,4 +1,4 @@
-binary @extends('layouts.app')
+@extends('layouts.app')
 
 @section('page-inner')
 <div class="page-inner container">
