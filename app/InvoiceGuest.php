@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class InvoiceGuest extends Model
 {
     /**
+     * Primary key dari model
+     *
+     * @var array
+     */
+    protected $primaryKey = 'id_invoice_guest';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array

@@ -42,4 +42,9 @@ class Organization extends Model
     {
         return $this->hasMany(Membership::class, 'id_organization');
     }
+
+    public function membership_invoices()
+    {
+        return $this->hasMany(MembershipInvoice::class, 'id_organization');
+    }
 }

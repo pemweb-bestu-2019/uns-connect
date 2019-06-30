@@ -14,4 +14,9 @@ class MembershipInvoice extends Model
     protected $fillable = [
         'price', 'date', 'id_organization'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user');
+    }
 }
