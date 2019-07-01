@@ -61,6 +61,11 @@ class User extends Authenticatable
         return $this->username === 'moerbayaksa';
     }
 
+    public function isOrganizationAdmin()
+    {
+        return $this->is_admin_organization == true;
+    }
+
     public function memberships()
     {
         return $this->hasMany(Membership::class, 'id_user');

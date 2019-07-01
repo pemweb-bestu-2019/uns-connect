@@ -167,9 +167,11 @@
                                 <a class="nav-link {{ nav_set_active(['me.index', 'me.profile']) }}"
                                     href="{{ route('me.index') }}"><i class="fas fa-cloud-meatball"></i>
                                     {{ __('Me') }} </a>
+                                @if(auth()->user()->isAdmin())
                                 <a class="nav-link {{ nav_set_active(['admin.index', 'admin.division', 'admin.division.create', 'admin.division.edit']) }}"
-                                    href="{{ route('admin.index') }}"><i class="fas fa-user-shield"></i>
-                                    {{ __('Administrator') }} </a>
+                                href="{{ route('admin.index') }}"><i class="fas fa-user-shield"></i>
+                                {{ __('Administrator') }} </a>
+                                @endif
                                 @endguest
                             </div><!-- /.nav -->
                         </div><!-- /.nav-scroller -->

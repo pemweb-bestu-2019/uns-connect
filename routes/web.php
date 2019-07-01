@@ -51,25 +51,30 @@ Route::prefix('me')->group(function () {
 Route::prefix('orgs')->group(function() {
     Route::get('/', 'OrgsController@index')->name('orgs.index');
 
-    Route::get('create', 'OrgsController@showCreate')->name('orgs.create');
-    Route::post('create', 'OrgsController@store')->name('orgs.store');
+    Route::middleware('manager')->group(function() {
+        Route::get('create', 'OrgsController@showCreate')->name('orgs.create');
+        Route::post('create', 'OrgsController@store')->name('orgs.store');
 
-    Route::get('owned', 'OrgsController@showOwned')->name('orgs.owned');
-    Route::get('owned/{organization}/edit', 'OrgsController@showOwnedEditPage')->name('orgs.owned.edit');
-    Route::get('owned/{organization}/report', 'OrgsController@showOwnedReportPage')->name('orgs.owned.report');
-    Route::put('owned/{organization}/update', 'OrgsController@update')->name('orgs.owned.update');
+        Route::get('owned', 'OrgsController@showOwned')->name('orgs.owned');
+        Route::get('owned/{organization}/edit', 'OrgsController@showOwnedEditPage')->name('orgs.owned.edit');
+        Route::get('owned/{organization}/report', 'OrgsController@showOwnedReportPage')->name('orgs.owned.report');
+        Route::put('owned/{organization}/update', 'OrgsController@update')->name('orgs.owned.update');
+    });
 });
 
 Route::prefix('tickets')->group(function() {
     Route::get('/', 'TicketController@index')->name('tickets.index');
-    Route::get('owned', 'TicketController@showOwned')->name('tickets.owned');
-    Route::get('owned/select', 'TicketController@selectOrganization')->name('tickets.owned.select');
 
-    Route::get('owned/{organization}/create', 'TicketController@createEvent')->name('tickets.owned.create');
-    Route::post('owned/{organization}/store', 'TicketController@storeEvent')->name('tickets.owned.store');
+    Route::middleware('manager')->group(function() {
+        Route::get('owned', 'TicketController@showOwned')->name('tickets.owned');
+        Route::get('owned/select', 'TicketController@selectOrganization')->name('tickets.owned.select');
 
-    Route::get('owned/{event}/edit', 'TicketController@showEventEditPage')->name('tickets.owned.edit');
-    Route::put('owned/{event}/update', 'TicketController@update')->name('tickets.owned.update');
+        Route::get('owned/{organization}/create', 'TicketController@createEvent')->name('tickets.owned.create');
+        Route::post('owned/{organization}/store', 'TicketController@storeEvent')->name('tickets.owned.store');
+
+        Route::get('owned/{event}/edit', 'TicketController@showEventEditPage')->name('tickets.owned.edit');
+        Route::put('owned/{event}/update', 'TicketController@update')->name('tickets.owned.update');
+    });
 });
 
 Route::prefix('admin')->group(function() {
