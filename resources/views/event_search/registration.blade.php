@@ -13,6 +13,14 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
+                        @if($isCannotBecausePrivate)
+                        <div class="card-body">
+                            <h4 class="card-title"> Private Event </h4>
+                            <hr>
+                            <p>Pendaftaran untuk event ini tidak bisa dilakukan karena event ini adalah private dan
+                                hanya anggota yang bisa mendaftar.</p>
+                        </div>
+                        @else
                         @auth
                         {{-- User register --}}
                         @if($invoice)
@@ -67,7 +75,8 @@
                                         </svg>
                                     </div>
                                     <div class="col-lg-2">
-                                        {!! str_replace(['120px', 'height="100%"'], ['100%', ''], QrCode::margin(0)->size(120)->generate($invoice->invoice->id_invoice)) !!}
+                                        {!! str_replace(['120px', 'height="100%"'], ['100%', ''],
+                                        QrCode::margin(0)->size(120)->generate($invoice->invoice->id_invoice)) !!}
                                     </div>
                                 </div>
                             </div>
@@ -129,6 +138,7 @@
                         </div>
                         @endif
                         @endauth
+                        @endif
                     </div>
                 </div>
             </div>
