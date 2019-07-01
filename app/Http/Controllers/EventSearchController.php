@@ -31,6 +31,16 @@ class EventSearchController extends Controller
 
         $invoice = null;
         $registrationClosed = false;
+        $isCannotBecausePrivate = true;
+
+        # Jika event adalah private
+        if ($event->is_private == true) {
+            if (auth()->check() && auth()->user()->memberships->contains('id_organization', $event->id_organization)) {
+                $isCannotBecausePrivate = false;
+            }
+        } else {
+            $isCannotBecausePrivate = false;
+        }
 
         # If current user is authenticated
         if (auth()->check()) {
@@ -43,6 +53,8 @@ class EventSearchController extends Controller
                     if ($invoices_invoice->invoice->id_event == $event->id_event) {
                         $invoice = $invoices_invoice;
 
+                        $isCannotBecausePrivate = false;
+
                         break;
                     }
                 }
@@ -54,7 +66,8 @@ class EventSearchController extends Controller
         }
 
         return view('event_search.registration', compact('event', 'member', 'invoice'))
-            ->with('registrationClosed', $registrationClosed);
+            ->with('registrationClosed', $registrationClosed)
+            ->with('isCannotBecausePrivate', $isCannotBecausePrivate);
     }
 
     public function guestRegistrationPost(StoreMember $member, Event $event)
