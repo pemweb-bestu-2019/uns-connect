@@ -13,7 +13,7 @@
                     @include('vendor.include.navigation_ticket')
                     <!-- .card-body -->
                     <div class="card-body">
-                        <a href="#" class="btn btn-primary"><i class="fas fa-donate"></i> Generate Report</a>
+                        <a href="{{ route('tickets.owned.report', $event->slug) }}" class="btn btn-primary"><i class="fas fa-donate"></i> Generate Report</a>
                         <hr>
                         <form action="{{ route('tickets.owned.update', $event->slug) }}" method="post">
                             @method('PUT')

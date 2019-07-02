@@ -97,4 +97,12 @@ class EventSearchController extends Controller
             ->back()
             ->with('success', 'Anda berhasil membeli tiket dengan id invoice: #' . $invoice->id);
     }
+
+    public function map(Event $event)
+    {
+        $isMapAvailable = (!empty($event->lat) && !empty($event->long));
+
+        return view('event_search.map', compact('event'))
+            ->with('isMapAvailable', $isMapAvailable);
+    }
 }

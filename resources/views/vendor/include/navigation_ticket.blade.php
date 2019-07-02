@@ -7,7 +7,7 @@
         </li>
         @if (auth()->user()->isOrganizationAdmin())
         <li class="nav-item">
-            <a class="nav-link {{ nav_set_active(['tickets.owned', 'tickets.owned.create', 'tickets.owned.select', 'tickets.owned.edit']) }}"
+            <a class="nav-link {{ nav_set_active(['tickets.owned', 'tickets.owned.create', 'tickets.owned.select', 'tickets.owned.edit', 'tickets.owned.report']) }}"
                 href="{{ route('tickets.owned') }}"><i class="fab fa-trello"></i> Your Events</a>
         </li>
         @endif

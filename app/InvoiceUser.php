@@ -26,4 +26,9 @@ class InvoiceUser extends Model
     {
         return $this->morphOne(Invoice::class, 'invoiceable');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user');
+    }
 }
