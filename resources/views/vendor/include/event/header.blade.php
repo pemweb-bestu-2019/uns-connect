@@ -34,7 +34,7 @@
         <!-- .nav -->
         <div class="nav nav-tabs">
             <a class="nav-link {{ nav_set_active('events.show') }}" href="{{ route('events.show', $event->slug) }}">Overview</a>
-            <a class="nav-link" href="page-team.html">Map</a>
+            <a class="nav-link {{ nav_set_active('events.map') }}" href="{{ route('events.map', $event->slug) }}">Map</a>
             <a class="nav-link {{ nav_set_active('events.registration') }}" href="{{ route('events.registration', $event->slug) }}">Registration</a>
         </div><!-- /.nav -->
     </div><!-- /.nav-scroller -->

@@ -129,4 +129,9 @@ class TicketController extends Controller
 
         return view('tickets.owned.edit', compact('organization', 'event'));
     }
+
+    public function showReportPage(Event $event)
+    {
+        return view('tickets.owned.report', compact('event'));
+    }
 }

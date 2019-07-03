@@ -19,6 +19,7 @@ Route::prefix('events')->group(function() {
     Route::get('/', 'EventSearchController@index')->name('events.index');
     Route::get('{event}/overview', 'EventSearchController@showEvent')->name('events.show');
     Route::get('{event}/registration', 'EventSearchController@registration')->name('events.registration')->middleware(['identity']);
+    Route::get('{event}/map', 'EventSearchController@map')->name('events.map');
 
     Route::post('{event}/registration', 'EventSearchController@registrationPost')->name('events.registration.user');
     Route::post('{event}/guest_registration', 'EventSearchController@guestRegistrationPost')->name('events.registration.guest');
@@ -35,8 +36,6 @@ Route::prefix('organizations')->group(function() {
     Route::get('{organization}/events', 'OrganizationController@showEventsPage')->name('organizations.events');
 });
 
-Route::get('/calender', 'EventsCalenderController@index')->name('calender.index');
-
 Route::prefix('me')->group(function () {
     Route::get('/', 'UserController@index')->name('me.index');
 
@@ -51,25 +50,31 @@ Route::prefix('me')->group(function () {
 Route::prefix('orgs')->group(function() {
     Route::get('/', 'OrgsController@index')->name('orgs.index');
 
-    Route::get('create', 'OrgsController@showCreate')->name('orgs.create');
-    Route::post('create', 'OrgsController@store')->name('orgs.store');
+    Route::middleware('manager')->group(function() {
+        Route::get('create', 'OrgsController@showCreate')->name('orgs.create');
+        Route::post('create', 'OrgsController@store')->name('orgs.store');
 
-    Route::get('owned', 'OrgsController@showOwned')->name('orgs.owned');
-    Route::get('owned/{organization}/edit', 'OrgsController@showOwnedEditPage')->name('orgs.owned.edit');
-    Route::get('owned/{organization}/report', 'OrgsController@showOwnedReportPage')->name('orgs.owned.report');
-    Route::put('owned/{organization}/update', 'OrgsController@update')->name('orgs.owned.update');
+        Route::get('owned', 'OrgsController@showOwned')->name('orgs.owned');
+        Route::get('owned/{organization}/edit', 'OrgsController@showOwnedEditPage')->name('orgs.owned.edit');
+        Route::get('owned/{organization}/report', 'OrgsController@showOwnedReportPage')->name('orgs.owned.report');
+        Route::put('owned/{organization}/update', 'OrgsController@update')->name('orgs.owned.update');
+    });
 });
 
 Route::prefix('tickets')->group(function() {
     Route::get('/', 'TicketController@index')->name('tickets.index');
-    Route::get('owned', 'TicketController@showOwned')->name('tickets.owned');
-    Route::get('owned/select', 'TicketController@selectOrganization')->name('tickets.owned.select');
 
-    Route::get('owned/{organization}/create', 'TicketController@createEvent')->name('tickets.owned.create');
-    Route::post('owned/{organization}/store', 'TicketController@storeEvent')->name('tickets.owned.store');
+    Route::middleware('manager')->group(function() {
+        Route::get('owned', 'TicketController@showOwned')->name('tickets.owned');
+        Route::get('owned/select', 'TicketController@selectOrganization')->name('tickets.owned.select');
 
-    Route::get('owned/{event}/edit', 'TicketController@showEventEditPage')->name('tickets.owned.edit');
-    Route::put('owned/{event}/update', 'TicketController@update')->name('tickets.owned.update');
+        Route::get('owned/{organization}/create', 'TicketController@createEvent')->name('tickets.owned.create');
+        Route::post('owned/{organization}/store', 'TicketController@storeEvent')->name('tickets.owned.store');
+
+        Route::get('owned/{event}/report', 'TicketController@showReportPage')->name('tickets.owned.report');
+        Route::get('owned/{event}/edit', 'TicketController@showEventEditPage')->name('tickets.owned.edit');
+        Route::put('owned/{event}/update', 'TicketController@update')->name('tickets.owned.update');
+    });
 });
 
 Route::prefix('admin')->group(function() {
@@ -82,6 +87,9 @@ Route::prefix('admin')->group(function() {
     Route::put('division/{division}/edit', 'AdminController@updateDivision')->name('admin.division.update');
     Route::post('division/create', 'AdminController@storeDivision')->name('admin.division.store');
 });
+
+Route::get('/calender', 'EventsCalenderController@index')->name('calender.index')->middleware('auth');
+Route::get('assets/data/events.json', 'EventsCalenderController@handleRequest')->middleware('auth');
 
 Auth::routes([
     'reset' => false,
