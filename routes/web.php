@@ -95,5 +95,3 @@ Auth::routes([
     'reset' => false,
     'verify' => false
 ]);
-
-Route::get('/home', 'HomeController@index')->name('home');
