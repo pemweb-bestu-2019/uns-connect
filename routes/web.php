@@ -88,12 +88,10 @@ Route::prefix('admin')->group(function() {
     Route::post('division/create', 'AdminController@storeDivision')->name('admin.division.store');
 });
 
-Route::get('/calender', 'EventsCalenderController@index')->name('calender.index')->middleware('auth');
-Route::get('assets/data/events.json', 'EventsCalenderController@handleRequest')->middleware('auth');
+Route::get('/calender', 'EventsCalenderController@index')->name('calender.index');
+Route::get('assets/data/events.json', 'EventsCalenderController@handleRequest');
 
 Auth::routes([
     'reset' => false,
     'verify' => false
 ]);
-
-Route::get('/home', 'HomeController@index')->name('home');
