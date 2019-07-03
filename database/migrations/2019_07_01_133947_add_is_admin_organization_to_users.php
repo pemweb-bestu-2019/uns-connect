@@ -14,7 +14,7 @@ class AddIsAdminOrganizationToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->boolean('is_admin_organization');
+            $table->boolean('is_admin_organization')->default(false);
         });
     }
 
